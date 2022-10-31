@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+
+-->
+<html>
+    <head>
+        <title>Registro</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../Css_A/registro.css" ><!--  -->
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        </style>
+    </head>
+    <body>
+        <header>
+            <img src="../../Imagenes/logos/logo_AN.png" alt="logoCS" class="imglogo"/>Copernicus System
+            <nav>
+                <ul>
+                    <a href="#" class="link" >Iniciar Sesión</a>
+                    <a href="#" class="link" >Menú principal</a>
+                </ul>
+            </nav>
+        </header>
+        
+        
+        <div class="div1">
+            <!-- <form name="form" action="" method="post" >  --> <!-- la pagina redirigira al inicio de sesion index.htm -->
+            <div class="Principal">
+                <h1>Registrate</h1>
+                <input class="Registro" type="text" id="TxtNombre" name="TxtNombre" placeholder="Ingrese su Nombre">
+                <p><input class="Registro" type="text" id="TxtApellidos" name="TxtApellidos" placeholder="Ingrese sus Apellidos"></p>
+                <p><input class="Registro" type="email" id="TxtCorreo" name="TxtCorreo" placeholder="Ingrese su correo">
+                <p><input class="Registro" type="password" id="TxtPass" name="TxtPass" placeholder="Ingrese su contraseña">
+                <p><select class="Registro gen" id="Selectgenero" name="Selectgenero" >
+                        <option>Sexo</option>
+                        <option value="Femenino" >Femenino</option>
+                        <option value="Masculino" >Masculino</option>
+                    </select></p>
+                    
+                <p><input class="Registro" type="submit" id="btnRegis" name="btnRegis" value="Registrarse"></p>
+                <p>Ya tengo una cuenta   <a href="../jsp/InicioSesion.jsp">   Iniciar Sesión </a></p>
+
+            </div>
+            <!--</form>  -->
+        </div>
+        
+        <div class="Saturn">
+            <iframe src='https://my.spline.design/pruebas-c5a4df693b4ee05385b4acc70146d9e4/' frameborder='0' width='70%' height='600vh' align="right"></iframe>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,96 @@
+*{
+    font-family: 'Arenas movedizas', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+   font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    background-color:  #000;
+}
+body{
+    background-color:  #000;
+}
+header{
+    background-color:  #000814;
+    color: white;
+    align-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 6px;
+    display: flex;
+    padding: 15px 7%;
+    align-content:  center;
+    justify-content: space-between;
+    size: 18px;
+}
+header a{
+    color:  white;
+    text-decoration: none;
+}
+.Principal{
+    
+}
+
+.Registro{
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    width: 300px;
+    line-height: 2px; height: 35px;
+     background: #000814;
+     //background: rgba(5, 7, 12, 0.70);
+     
+     color: white;
+}
+.Registro gen{
+    width: 100px;
+}
+.div1{
+    position: absolute;
+    top: 100px;
+    bottom: 0;
+    right: 900px;
+    margin: 0;
+    border-radius: 9px;
+    border: 2px gray;
+    background:  white;
+    height: 400px;
+    padding: 30px;
+    background: none;
+    color: white;
+}
+
+.img1{
+    margin-right: 0px;
+    margin-left: 900px;
+    width: 450px;
+    height:480px;
+    margin-top:60px;
+}
+
+.imglogo{
+    width: 30px;
+    height: 30px;
+}
+
+.Saturn div{
+    position: absolute;
+    margin-right: 0px;
+    
+    margin-top: 0px;
+    margin-bottom: auto;
+}
+
+#btnRegis:hover{
+    background-color:  #1B2A41;
+    //padding: 20px;
+    transition: .7s;
+}
+#btnRegis{
+    margin-top: 25px;
+    margin-bottom:  20px;
+}
