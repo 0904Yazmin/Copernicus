@@ -11,43 +11,59 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
         </style>
+        <link rel="shorcut icon" href="../../Imagenes/logos/logo_AN.png">
     </head>
     <body>
         <header>
-            <img src="../../Imagenes/logos/logo_AN.png" alt="logoCS" class="imglogo"/>Copernicus System
+            <a href="#" class="link" ><img src="../../Imagenes/logos/logo_AN.png" alt="logoCS" class="imglogo"/></a> <a href="#" class="link" >Copernicus System</a>
             <nav>
                 <ul>
                     <a href="#" class="link" >Iniciar Sesión</a>
-                    <a href="#" class="link" >Menú principal</a>
                 </ul>
             </nav>
         </header>
-        
-        
-        <div class="div1">
-            <!-- <form name="form" action="" method="post" >  --> <!-- la pagina redirigira al inicio de sesion index.htm -->
-            <div class="Principal">
-                <h1>Registrate</h1>
-                <input class="Registro" type="text" id="TxtNombre" name="TxtNombre" placeholder="Ingrese su Nombre">
-                <p><input class="Registro" type="text" id="TxtApellidos" name="TxtApellidos" placeholder="Ingrese sus Apellidos"></p>
-                <p><input class="Registro" type="email" id="TxtCorreo" name="TxtCorreo" placeholder="Ingrese su correo">
-                <p><input class="Registro" type="password" id="TxtPass" name="TxtPass" placeholder="Ingrese su contraseña">
-                <p><select class="Registro gen" id="Selectgenero" name="Selectgenero" >
-                        <option>Sexo</option>
-                        <option value="Femenino" >Femenino</option>
-                        <option value="Masculino" >Masculino</option>
-                    </select></p>
-                    
-                <p><input class="Registro" type="submit" id="btnRegis" name="btnRegis" value="Registrarse"></p>
-                <p>Ya tengo una cuenta   <a href="../jsp/InicioSesion.jsp">   Iniciar Sesión </a></p>
 
-            </div>
-            <!--</form>  -->
+        <div class="div1">
+            <center>
+                <form name="form" action="../jsp/Info.jsp" method="post" > <!-- la pagina redirigira al inicio de sesion index.htm -->
+                    <div class="Principal">
+                        <h1>Registrate</h1>
+                        <input class="Registro" type="text" id="TxtNombre" name="TxtUsu" placeholder="Ingrese su Nombre">
+                        <p><input class="Registro" type="email" id="TxtCorreo" name="TxtMail" placeholder="Ingrese su correo">
+                        <p><input class="Registro" type="password" id="TxtPass" name="TxtPass" placeholder="Ingrese su contraseña">
+                        <p> Únete a Copernicus System como:
+                        <select class="Registro tipo" id="SelectUsu" name="SelectUsu" >
+                                <option>Seleccionar</option>
+                                <option value="Alumno" >Alumno</option>
+                                <option value="Docente" >Docente</option>
+                                <option value="Indep" >Independiente</option>
+                            </select>
+
+                        <p><input class="Registro" type="submit" id="btnRegis" name="btnRegis" value="Registrarse"></p>
+                        <p>Ya tengo una cuenta   <a href="../jsp/InicioSesion.jsp">   Iniciar Sesión </a></p>
+
+                    </div>
+                </form>
+            </center>
         </div>
-        
-        <div class="Saturn">
-            <iframe src='https://my.spline.design/pruebas-c5a4df693b4ee05385b4acc70146d9e4/' frameborder='0' width='70%' height='600vh' align="right"></iframe>
-        </div>
-        
+
+
     </body>
+    <footer>
+        <div class="footer1">
+            <p>
+                Nuestra misión es proporcionar una educación gratuita de clase mundial para cualquier persona en cualquier lugar.
+                Khan Academy es una organización sin fines de lucro 501(c)(3). ¡Haz una donación o hazte voluntario hoy mismo!
+            </p>
+        </div>
+        <div class="footer2">
+            <p>Equipo 6 Tuna tech</p>
+            <p>Integrantes</p>
+            <p>Aguilera García Christopher Emmanuel
+            <p>Cisneros Mendoza Gerardo Uriel</p>
+            <p>García López Arturo</p>
+            <p> Reyes Barquera Yazmin</p>
+
+        </div>
+    </footer>
 </html>

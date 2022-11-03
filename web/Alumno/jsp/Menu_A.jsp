@@ -1,3 +1,22 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="ConexionBD.BD"%>
+<%
+    HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
+
+    int idPersona = (int) (miSessiondelUsuario.getAttribute("id_alum") == null ? 0 : miSessiondelUsuario.getAttribute("id_alum"));
+    if (idPersona < 1) {
+        response.sendRedirect("../jsp/Menu_A.jsp");
+    }
+    String nombre = "";
+    BD bd = new BD();
+    bd.conectar();
+    String strQry = "Select * from Alumno where id_alum= '" + idPersona + "'";
+    ResultSet rsDatosPer = bd.consulta(strQry);
+
+    if (rsDatosPer.next()) {
+        nombre = rsDatosPer.getString(3);
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +35,7 @@
             <img src="../../Imagenes/Iconos_menu/logo_AN.png" class="logo">
             <nav class="nav_A">
                 <ul>
-                    <img src="../../Imagenes/Iconos_menu/home.png" class="imgmenu"> <a href="#" class="link" >MenÃº principal</a>
+                    <img src="../../Imagenes/Iconos_menu/home.png" class="imgmenu"> <a href="#" class="link" >Menú principal</a>
                     <img src="../../Imagenes/Iconos_menu/clases.png" class="imgmenu"> <a href="#" class="link" >Clases</a>
                     <img src="../../Imagenes/Iconos_menu/comentarios.png" class="imgmenu"> <a href="#" class="link" >Foro</a>
                     <img src="../../Imagenes/Iconos_menu/puntuaciones.png" class="imgmenu"> <a href="#" class="link" >Puntuaciones</a>
@@ -25,6 +44,7 @@
                     <img src="../../Imagenes/Iconos_menu/apuntes.png" class="imgmenu"> <a href="#" class="link" >Lecciones</a>
                 </ul>
             </nav>
+             <h1> Bienvenido  <%=nombre%> </h1>
         </header>
     </center>
         
@@ -34,3 +54,4 @@
         
     </body>
 </html>
+
