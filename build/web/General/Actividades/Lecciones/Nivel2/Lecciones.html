@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../../../css/lecciones.css" >
+        <link rel="stylesheet" href="../../../../Alumno/css_A/menu_A.css" >
         <link rel="shorcut icon" href="../../../../General/img/logos/Newlogo.png">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
@@ -14,20 +15,35 @@
     <body>
     <center>
         <header>
-            <img src="../../../../General/img/logos/Newlogo.png" alt="logobarra" class="logobarra">
-            <div class="nav_A">
+            <a href="Menu_A.jsp" ><img src="../../General/img/logos/Newlogo.png" alt="logo" class="logo"></a>
+            <nav class="nav_A">
                 <center>
                     <ul>
-                        <img src="../../../../General/img/Iconos_menu/home.png" class="imgmenu"> <a href="../../../../Alumno/jsp_A/Menu_A.jsp" class="link" >Menú principal</a>
-                        <img src="../../../../General/img/Iconos_menu/clases.png" class="imgmenu"> <a href="#" class="link" >Clase</a>
-                        <img src="../../../../General/img/Iconos_menu/comentarios.png" class="imgmenu"> <a href="#" class="link" >Foro</a>
-                        <img src="../../../../General/img/Iconos_menu/puntuaciones.png" class="imgmenu"> <a href="#" class="link" >Puntuaciones</a>
-                        <img src="../../../../General/img/Iconos_menu/libros_1.png" class="imgmenu"> <a href="#" class="link" >Ejercicios</a>
-                        <img src="../../../../General/img/Iconos_menu/mapa.png" class="imgmenu"> <a href="#" class="link" >Mapa interactivo</a>
-                        <img src="../../../../General/img/Iconos_menu/apuntes.png" class="imgmenu"> <a href="../../General/Actividades/Lecciones/Nivel2/Lecciones.html" class="link" >Lecciones</a>
+                        <li> <a href="#" class="link" ><img src="../../General/img/Iconos_menu/clases.png" class="imgmenu"> Clase</a></li>
+                        <li><a href="../../General/Actividades/Lecciones/Nivel2/Lecciones.html" class="link" ><img src="../../General/img/Iconos_menu/lecciones.png" class="imgmenu"> Lecciones <img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
+                            <ul>
+                                <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/temario.png" class="imgmenu">Temario</a> </li>
+                                <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu"> Nivel Básico</a></li> 
+                                <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu usu">Nivel Intermedio</a></li> <br>
+                                <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu">Nivel Avanzado</a></li>
+                                <li><a href="MaterialApoyoA.jsp" class="link" ><img src="../../General/img/Iconos_menu/libros_1.png" class="imgmenu">Material de apoyo</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/comentarios.png" class="imgmenu">Chat</a></li>
+                        <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/ejercicios.png" class="imgmenu"> Ejercicios</a></li>
+                        <li><a href="#" class="link" > <img src="../../General/img/Iconos_menu/puntuaciones.png" class="imgmenu"> Puntuaciones</a></li>
+                        <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/coheteM.png" class="imgmenu">Mapa</a></li> 
+                        <li class="opciones"><a class="link" ><img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
+                            <ul>
+                                <li class="link"><img src="../../General/img/Iconos_menu/correo.png" class="imgmenu"><%=correo%></li>
+                                <li><a href="Menu_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/home.png" class="imgmenu">   Inicio</a></li> 
+                                <li><a href="Perfil_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/usuario.png" class="imgmenu usu">Perfil</a></li> <br>
+                                <li><a href="../../General/cerrarSesion.jsp" class="link" ><img src="../../General/img/Iconos_menu/salir.png" class="imgmenu"> Cerrar sesión</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </center>
-            </div>
+            </nav>
         </header>
     </center>
     <div class="Principal" id="Principal">
@@ -71,7 +87,7 @@
                     La segunda ley de Kepler también se refiere a la velocidad cambiante de un planeta en movimiento. Si tomamos dos segmentos diferentes del diagrama anterior:
                     para dos puntos más cercanos al sol, el camino recorrido es mucho más largo que para dos puntos más alejados del sol. Sabemos que la velocidad se 
                     mantiene igual, por lo que el planeta debe haberse movido más rápido cerca del perihelio y más lento cerca del afelio para cubrir distancias tan diferentes.
-                    
+
             </div>
         </div>
 

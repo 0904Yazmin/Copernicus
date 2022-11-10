@@ -1,6 +1,7 @@
-<%@page import="Conexion.BD"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page contentType="text/html" pageEncoding="UTF-8" session="true" %>
+<%@page import="Conexion.BD"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <%
     HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
@@ -20,17 +21,15 @@
         correo = rsDatosPer.getString(3);
     }
 %>
-<!DOCTYPE html>
 <html>
     <head>
-        <title>Copernicus System</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css_A/menu_A.css" ><!--  -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Nivel básico</title>
+        <link rel="stylesheet" href="../../Alumno/css_A/menu_A.css" >
+        <link rel="shorcut icon" href="../img/logos/Newlogo.png">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
         </style>
-        <link rel="shorcut icon" href="../../General/img/logos/Newlogo.png">
     </head>
     <body>
     <center>
@@ -49,7 +48,7 @@
                                 <li><a href="MaterialApoyoA.jsp" class="link" ><img src="../../General/img/Iconos_menu/libros_1.png" class="imgmenu">Material de apoyo</a></li>
                             </ul>
                         </li>
-                        <li><a href="../foro_A/foro_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/comentarios.png" class="imgmenu">Chat</a></li>
+                        <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/comentarios.png" class="imgmenu">Chat</a></li>
                         <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/ejercicios.png" class="imgmenu"> Ejercicios</a></li>
                         <li><a href="#" class="link" > <img src="../../General/img/Iconos_menu/puntuaciones.png" class="imgmenu"> Puntuaciones</a></li>
                         <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/coheteM.png" class="imgmenu">Mapa</a></li> 
@@ -67,13 +66,13 @@
         </header>
     </center>
 
-    <div class="tierra">
-        <iframe src='https://my.spline.design/tierra-8cfeeeb49ed78ab4d314507d78c7754c/' frameborder='0' width='100%' height='651vh'></iframe>
+    <div class="contendedor">
+        <div >
+            
+        </div>
+
     </div>
-    <div class="Principal" id="Principal">
-        <center><h1>Bienvenido  <%=nombre%> </h1></center>
-    </div>
+
 
 </body>
 </html>
-
