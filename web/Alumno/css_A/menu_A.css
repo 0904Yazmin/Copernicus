@@ -9,13 +9,13 @@
 body{
     background-repeat: no-repeat;
     background-size: cover;
-    background:  none;
+    background-color:  #1E222D;
     min-height: 100vh;
 }
 
 .tierra div{
-    min-height: 100vh;
-    width: 1000%;
+    min-height: 100%;
+    width: 100%;
     z-index: 1;
 }
 
@@ -71,7 +71,6 @@ header .nav_A ul li ul{
 }
 header .nav_A ul li ul li{
     width: 100%;
-    //border-top: 1px solid  #000814;
     text-align: left;
     transition: .8s;
     font-size: 11px;
@@ -136,4 +135,12 @@ header .nav_A ul li ul li .link table{
 
 .Principal h1 {
     font-size: 38px;
+}
+
+
+/*** -----------------------------------------------MAPA INTERACTIVO ---------------------------------------------- ***/
+.Mapa_interactivo{
+    z-index: 10;
+    width: 100%;
+    height: 100%;
 }

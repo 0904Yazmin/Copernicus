@@ -1,9 +1,3 @@
-<%-- 
-    Document   : Info
-    Created on : 1 nov. 2022, 22:32:15
-    Author     : kim53
---%>
-
 <%@page import="Conexion.BD"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

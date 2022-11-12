@@ -38,7 +38,7 @@
             @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
         </style>
     </head>
-    <body>
+    <body id="foro1">
     <center>
         <header>
             <a href="Menu_A.jsp" ><img src="../../General/img/logos/Newlogo.png" alt="logo" class="logo"></a>
@@ -72,6 +72,7 @@
             </nav>
         </header>
     </center>
+
     <div class="contenedor-imagen">
         <a href="#">
             <img src="../../General/img/foro.png" alt=""/>
@@ -81,17 +82,20 @@
     <main id="blog">
         <div class="contenedor">
             <aside>
-                <div>
+                <div class="infoClase">
                     <h1>Nombre de la clase</h1>
+                    <p>Numero de estudiantes</p>
+                    <p>Grado de la clase</p>
+                    <p></p>
                 </div>
                 <h1>Crear publicación</h1>
                 <nav class="indice">
                     <form name="crearPost" action="ValidarUsu.jsp" method="post" > 
                         <center>
                             <textarea cols="75" rows="5" name="comentarios" id="comentarios" class="info textArea" placeholder="Escribe lo que quieras xd"></textarea>
-                            <input id="fileImg" type="file" name="fileImg"  class="fileImg botoncitos" >
+                            <input id="fileImg" type="file" name="fileImg"  class="fileImg botoncitos1" >
                             <input type="reset" class="botoncitos">
-                            <p><input class="botoncitos" type="submit" id="btnLogin" name="btnLogin" value="Iniciar Sesión"></p>
+                            <p><input class="botoncitos" type="submit" id="btnPublicar" name="btnPublicar" value="Publicar"></p>
                         </center>
                     </form>
                 </nav>
@@ -139,9 +143,9 @@
     </main>
     <footer>
         <div class="contenedor-imagen">
-           
+
         </div>
-        
+
     </footer>
 </body>
 </html>

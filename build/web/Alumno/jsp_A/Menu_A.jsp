@@ -1,6 +1,6 @@
 <%@page import="Conexion.BD"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page contentType="text/html" pageEncoding="UTF-8" session="true" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
 <%
     HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
@@ -14,7 +14,6 @@
     basesita.conectar();
     String datitos = "Select * from Usuario where id_usuario = '" + idPersona + "'";
     ResultSet rsDatosPer = basesita.consulta(datitos);
-
     if (rsDatosPer.next()) {
         nombre = rsDatosPer.getString(2);
         correo = rsDatosPer.getString(3);
@@ -26,7 +25,7 @@
         <title>Copernicus System</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css_A/menu_A.css" ><!--  -->
+        <link rel="stylesheet" href="../css_A/menu_A.css" >
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
         </style>
@@ -49,10 +48,10 @@
                                 <li><a href="MaterialApoyoA.jsp" class="link" ><img src="../../General/img/Iconos_menu/libros_1.png" class="imgmenu">Material de apoyo</a></li>
                             </ul>
                         </li>
-                        <li><a href="../foro_A/foro_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/comentarios.png" class="imgmenu">Chat</a></li>
+                        <li><a href="../foro_A/foro_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/comentarios.png" class="imgmenu">Foro</a></li>
                         <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/ejercicios.png" class="imgmenu"> Ejercicios</a></li>
                         <li><a href="#" class="link" > <img src="../../General/img/Iconos_menu/puntuaciones.png" class="imgmenu"> Puntuaciones</a></li>
-                        <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/coheteM.png" class="imgmenu">Mapa</a></li> 
+                        <li><a href="Mapa.jsp" class="link" ><img src="../../General/img/Iconos_menu/coheteM.png" class="imgmenu">Mapa</a></li> 
                         <li class="opciones"><a class="link" ><img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
                             <ul>
                                 <li class="link"><img src="../../General/img/Iconos_menu/correo.png" class="imgmenu"><%=correo%></li>
@@ -66,14 +65,13 @@
             </nav>
         </header>
     </center>
-
+                                
     <div class="tierra">
-        <iframe src='https://my.spline.design/tierra-8cfeeeb49ed78ab4d314507d78c7754c/' frameborder='0' width='100%' height='651vh'></iframe>
+        <iframe src='https://my.spline.design/tierra-8cfeeeb49ed78ab4d314507d78c7754c/' frameborder='0' width='100%' height='900'></iframe>
     </div>
     <div class="Principal" id="Principal">
         <center><h1>Bienvenido  <%=nombre%> </h1></center>
     </div>
-
 </body>
 </html>
 

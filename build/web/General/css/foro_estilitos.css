@@ -3,6 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color:  #525151;
+}
+#foro1{
+    background-color: #000;
+}
+    
 
 a {
     text-decoration: none;
@@ -121,6 +128,12 @@ aside .indice a {
     margin-bottom: 10px;
     color: #FFCD48;
 }
+.infoClase{
+    height: 40%;
+    margin-bottom: 12p;
+    margin-top: 12px;
+}
+
 /**  ----------------------------------------------------------- FORMULARIO ------------------------**/
 .info{
     border-radius: 8px;
@@ -150,6 +163,21 @@ aside .indice a {
     max-width: 350px;
     border: none;
 }
+.fileImg .botoncitos1{
+    border-radius: 12px;
+    border: none;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    width: 390px;
+    height: 27px;
+    background:  none;
+    color: white;
+    position: absolute;
+    top: 57%;
+    left: 10%;
+}
 .botoncitos{
     transition: .8s;
     color: white;
@@ -160,7 +188,7 @@ aside .indice a {
 .botoncitos:hover{
     color:  white;
     padding: 6px;
-    background-color:  ;
+    
     transition: .8s;
     border-radius: 5px;
     width: 100px;
@@ -176,6 +204,7 @@ aside .indice a {
     padding: 25px;
     margin: 18px;
     border-radius: 6px;
+    background-color: white;
 }
 
 
