@@ -62,7 +62,7 @@
                     </tr>
 
                     <tr>
-                        <td><input id="fileImg" type="file" name="fileImg"  class="fileImg" ></td>
+                        <td><input id="fileImg" type="file" name="fileImg"  class="fileImg" accept="image/*"></td>
                     </tr>
                    
                     <tr>

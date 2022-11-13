@@ -39,37 +39,39 @@
         <link rel="shorcut icon" href="../../General/img/logos/Newlogo.png">
     </head>
     <body id="Principal">
-        <div id="cuadro4" style="background-color: white; color: black;">
-            <table class="tablita" border="0">
-                <tr>
-                    <td><h1>Cambiar contraseña</h1></td>
-                </tr>
-                <tr>
-                    <td>Escriba su contraseña anterior</td>
-                </tr>
-                <tr>
-                    <td><input id="txtN" type="text" name="txtN"  class="actu" value="" ></td>
-                </tr>
-                <tr>
-                    <td>Nueva contraseña</td>
-                </tr>
-                <tr>
-                    <td><input id="txtPass2" type="password" name="txtPass2"  class="actu" value="" ></td>
-                </tr>
-                <tr>
-                    <td>Confirmar contraseña nueva</td><td>
-                </tr>
-                <tr>
-                    <td><input id="txtPass2" type="password" name="txtPass2"  class="actu" value="" ></td>
-                </tr>
-                <tr>
-                <center><td colspan='2'><input id="BtnEditar" name="BtnEditar" type="submit"  class="actu_b" value="Actualizar contraseña"/></td></center>
-                </tr>
-                <br><br> <br>
+        <form name="datosEdit" action="actualizarPass.jsp" method="post">
+            <div id="cuadro4" style="background-color: white; color: black;">
+                <table class="tablita" border="0">
+                    <tr>
+                        <td><h1>Cambiar contraseña</h1></td>
+                    </tr>
+                    <tr>
+                        <td>Escriba su contraseña anterior</td>
+                    </tr>
+                    <tr>
+                        <td><input id="pass" type="text" name="pass"  class="actu" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>Nueva contraseña</td>
+                    </tr>
+                    <tr>
+                        <td><input id="passNew" type="password" name="passNew"  class="actu" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td>Confirmar nueva contraseña </td><td>
+                    </tr>
+                    <tr>
+                        <td><input id="passConfirm" type="password" name="passConfirm"  class="actu" value="" ></td>
+                    </tr>
+                    <tr>
+                    <center><td colspan='2'><input id="BtnEditar" name="BtnEditar" type="submit"  class="actu_b" value="Actualizar contraseña"/></td></center>
+                    </tr>
+                    <br><br> <br>
 
-            </table>
+                </table>
 
-        </div>
+            </div>
+        </form>
 
         <%            }
             } catch (Exception ex) {

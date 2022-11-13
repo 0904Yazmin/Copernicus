@@ -13,9 +13,6 @@
         String correo = "";
         String grado = "";
         String tipo = "";
-        String foto = "";
-        String pass = "";
-
         base.conectar();
         String strQry = "select * from Estudiante where id_usuario='" + id + "'";
 
@@ -26,8 +23,7 @@
             correo = info.getString(3);
             tipo = info.getString(6);
             grado = info.getString(7);
-            foto = info.getString(5);
-            pass = info.getString(4);
+            
 %>
 <html>
     <head>
@@ -40,7 +36,7 @@
         <link rel="shorcut icon" href="../../General/img/logos/Newlogo.png">
     </head>
     <body id="Principal">
-        <form name="datosEdit" action="guardar_img.jsp" method="post" enctype="MULTIPART/FORM-DATA">
+        <form name="datosEdit" action="actualizarInfo.jsp" method="post">
             <div id="cuadro4" style="background-color: white; color: black;">
                 <table class="tablita" border="0">
                     <tr>
@@ -67,6 +63,7 @@
                     <tr>
                     <center><td colspan='2'><input id="BtnEditar" name="BtnEditar" type="submit"  class="actu_b" value="Actualizar datos"/></td></center>
                     </tr>
+                   
                     <br><br> <br>
 
                 </table>

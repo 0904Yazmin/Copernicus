@@ -9,7 +9,7 @@
 }
 
 .window-notice {
-    background: rgba(33, 41, 52, .85);
+    background: white;
     left: 0;
     bottom: 0;
     right: 0;
@@ -17,10 +17,36 @@
     display: flex;
     position: fixed;
     z-index: 999;
+    border-radius: 7px;
+    color: white;
+   
+}
+
+h1{
+    font-size: 28px;
+    font-weight:  400;
+}
+
+.content-buttons{
+    display: flex;
+}
+
+.boton_eliminar{
+    color:  white;
+    font-weight:  300;
+    transition: .8s;
+    margin-right: 19px;
+}
+.boton_eliminar:hover{
+    color:  #140152;
+    padding: 10px;
+    background-color:   #D8DEE9;
+    transition: .7s;
+    border-radius: 6px;
 }
 
 .window-notice .content {
-    background: #fff;
+    background: #C1121F;
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba(33, 41, 52, .75);
     box-sizing: content-box;

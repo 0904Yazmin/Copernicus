@@ -120,7 +120,7 @@
         <link rel="stylesheet" href="../css/guardarImg.css" >
         <style>@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');</style>
         <style>@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');</style>
-        <link rel="shorcut icon" href="../../General/img/logos/Newlogo.png">
+        <link rel="shorcut icon" href="../../../../General/img/logos/Newlogo.png">
     </head>
 
 

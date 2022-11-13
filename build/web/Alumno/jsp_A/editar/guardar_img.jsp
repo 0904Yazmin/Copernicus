@@ -90,21 +90,15 @@
         //String strQ = "update Estudiante set nombre='" + nombre + "'," + " pass='" + pass2 + "'," + "foto_usu='" + saveFile + "'where id_usuario='" + id + "'";
         base.edita(str);
         int resultadoEdita = base.edita(str);
-        out.println("Instrucción en SQL a realizar " + str);
-        out.println("Resultado de la modificación "
-                + resultadoEdita);
 
-        String dato = "Select imagen from imgUsu where id_usuario = '" + id + "'";
-        ResultSet result = base.consulta(dato);
+        if(resultadoEdita == 1){
+%>
+<script>
+    window.alert("La foto de perfil se actualizó correctamente");
+</script>
 
-        if (result.equals("null")) {
-            String strQry = "insert into imgUsu(id_usuario, imagen) values ( '" + id + " ' , ' " + saveFile + " ' ) ";
-            base.edita(strQry);
-        } else {
-            String strQry = "update imgUsu set imagen='" + saveFile + "'where id_usuario='" + id + "'";
-            base.edita(strQry);
-        }
-
+<%
+    }
     } catch (Exception XD) {
 
     }
@@ -117,21 +111,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" session="true">
         <title>Datos Actualizados</title>
-        <link rel="stylesheet" href="../css/guardarImg.css" >
+        <link rel="stylesheet" href="../../../General/css/guardarImg.css" >
+        <link rel="stylesheet" href="../../css_A/editaDatos.css" >
         <style>@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');</style>
         <style>@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');</style>
-        <link rel="shorcut icon" href="../../General/img/logos/Newlogo.png">
+        <link rel="shorcut icon" href=../../../General/img/logos/Newlogo.png">
     </head>
 
 
-    <div class="window-notice" id="window-notice">
-        <div class="content">
-            <div class="content-text">
-                <p>Tus datos se actualizaron correctamente</p>
-                <p><a href="../Perfil_A.jsp">Ir a mi perfil</a></p>
-            </div>
-            <div class="content-buttons"><a href="../Menu_A.jsp" id="close-button">Ir a menú principal</a></div>
-        </div>
+    <div>
     </div>
 
 

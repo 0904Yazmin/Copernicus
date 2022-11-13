@@ -114,7 +114,7 @@
                     <td>Tipo de usuario</td><td><%=tipo%></td>
                 </tr>
                 <tr><br>
-                <td><a  class="link_borrar" href="../jsp/eliminar_alumno.jsp">Borrar cuenta</a></td>
+                <td><a  class="link_borrar" href="editar/eliminarConfirm.jsp">Borrar cuenta</a></td>
                 <td></td>
                 </tr>
             </table>

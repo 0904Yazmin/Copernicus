@@ -25,6 +25,7 @@ header{
 header a{
     color:  white;
     text-decoration: none;
+    margin-right: 19px;
 }
 
 .Registro{
@@ -74,13 +75,15 @@ h1{
     margin-top:60px;
 }
 .link{
-    font-size: 16px;
+    font-size: 14px;
+    margin-right: 19px;
+    padding: 3px;
 }
 .link:hover{
     background-color: #311B93;
-    border-radius: 9px;
-    font-size: 18px;
-    padding: 3px;
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 2px;
     transition: .6s;
 }
 
