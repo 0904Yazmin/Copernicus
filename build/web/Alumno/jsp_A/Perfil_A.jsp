@@ -18,7 +18,7 @@
         BD basesita = new BD();
         basesita.conectar();
 
-        String datitos = "Select * from Usuario where id_usuario = '" + idPersona + "'";
+        String datitos = "Select * from Estudiante where id_usuario = '" + idPersona + "'";
         String info2 = "Select * from imgUsu where id_usuario = '" + idPersona + "'";
         ResultSet rsDatosPer = basesita.consulta(datitos);
 
@@ -96,20 +96,33 @@
                 }
             %>
 
-            <p><a href="Editar_datos_A.jsp" class="editarBtn">Agregar foto de perfil</a></p>
+            <p><a href="EditaDatos_A.jsp" class="editarBtn">Editar datos</a></p>
+            
 
         </div>
 
 
         <div id="cuadro3">
-            <p>Nombre: <%=nombre%></p>
-            <p>Correo electrónico: <%=correo%></p>
-            <p>Tipo de usuario:  <%=tipo%></p>
-
+            <table class="tablita2">
+                <tr>
+                    <td>Nombre de usuario: </td><td><%=nombre%></td>
+                </tr>
+                <tr>
+                    <td>Correo electrónico: </td><td><%=correo%></td>
+                </tr>
+                <tr>
+                    <td>Tipo de usuario</td><td><%=tipo%></td>
+                </tr>
+                <tr><br>
+                <td><a  class="link_borrar" href="../jsp/eliminar_alumno.jsp">Borrar cuenta</a></td>
+                <td></td>
+                </tr>
+            </table>
 
         </div>
 
     </div>
+    
 
 
     <%            }

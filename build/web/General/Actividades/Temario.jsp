@@ -1,6 +1,6 @@
-<%@page import="Conexion.BD"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
+<%@page import="Conexion.BD"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
@@ -12,7 +12,7 @@
     String correo = "";
     BD basesita = new BD();
     basesita.conectar();
-    String datitos = "Select * from Estudiante where id_usuario = '" + idPersona + "'";
+    String datitos = "Select * from Usuario where id_usuario = '" + idPersona + "'";
     ResultSet rsDatosPer = basesita.consulta(datitos);
     if (rsDatosPer.next()) {
         nombre = rsDatosPer.getString(2);
@@ -22,26 +22,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Copernicus System</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css_A/menu_A.css" >
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Temario</title>
+        <link rel="stylesheet" href="../../Alumno/css_A/menu_A.css" >
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
         </style>
-        <link rel="shorcut icon" href="../../General/img/logos/Newlogo.png">
+        <link rel="shorcut icon" href="../img/logos/Newlogo.png">
     </head>
-    <body>
-    <center>
+    <body id="fondoForo">
+        <center>
         <header>
-            <a href="Menu_A.jsp" ><img src="../../General/img/logos/Newlogo.png" alt="logo" class="logo"></a>
+            <a href="Menu_A.jsp" ><img src="../General/img/logos/Newlogo.png" alt="logo" class="logo"></a>
             <nav class="nav_A">
                 <center>
                     <ul>
                         <li> <a href="Clase_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/clases.png" class="imgmenu"> Clase</a></li>
                         <li><a href="../../General/Actividades/Lecciones/Nivel2/Lecciones.html" class="link" ><img src="../../General/img/Iconos_menu/lecciones.png" class="imgmenu"> Lecciones <img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
                             <ul>
-                                <li><a href="../../General/Actividades/Temario.jsp" class="link" ><img src="../../General/img/Iconos_menu/temario.png" class="imgmenu">Temario</a> </li>
+                                <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/temario.png" class="imgmenu">Temario</a> </li>
                                 <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu"> Nivel Básico</a></li> 
                                 <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu usu">Nivel Intermedio</a></li> <br>
                                 <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu">Nivel Avanzado</a></li>
@@ -65,13 +64,6 @@
             </nav>
         </header>
     </center>
-                                
-    <div class="tierra">
-        <iframe src='https://my.spline.design/tierra-8cfeeeb49ed78ab4d314507d78c7754c/' frameborder='0' width='100%' height='900'></iframe>
-    </div>
-    <div class="Principal" id="Principal">
-        <center><h1>Bienvenido  <%=nombre%> </h1></center>
-    </div>
-</body>
+        <h1>Hello World!</h1>
+    </body>
 </html>
-

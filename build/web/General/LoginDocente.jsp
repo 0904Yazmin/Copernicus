@@ -25,13 +25,13 @@
             </table>
             <nav class="navegacion">
                 <a href="Registro.html" class="link" >Registro</a>
-                <a href="LoginDocente.jsp" class="link" >Iniciar sesión como docente</a>
+                <a href="Login.jsp" class="link" >Iniciar sesión como estudiante</a>
             </nav>
         </header>
 
         <div class="cuadro">
-            <p><h1>Iniciar Sesión como estudiante</h1></p> <br>
-        <form name="form" action="ValidarEstudiante.jsp" method="post" > 
+            <p><h1>Iniciar Sesión como docente</h1></p> <br>
+        <form name="form" action="ValidarDocente.jsp" method="post" > 
             <center>
                 <p><img src="img/Iconos_menu/arroba.png" alt="arroba" class="icons"/><input class="info" type="email" id="TxtCorreo" name="email" placeholder="Ingrese su correo"> <br><br>
                 <p><img src="img/Iconos_menu/pass.png" alt="candado" class="icons"/><input class="info" type="password" id="TxtPass" name="password" placeholder="Ingrese su contraseña"></p>
@@ -44,7 +44,7 @@
     </div>
 
     <div class="tierra">
-        <iframe src='https://my.spline.design/tierracopy-75bc5b92c6c686be9d4697874f43f6f1/' frameborder='0' width='100%' height='1000'></iframe>
+        <iframe src='https://my.spline.design/martelogindoc-8013e267f60905eed97f1b587b51b0fd/' frameborder='0' width='100%' height='1000'></iframe>
     </div>
 
 
@@ -57,7 +57,7 @@
         </p>
     </div>
     <div class="footer2">
-        <p>Equipo 6 Tuna tech</p>
+        <p>Equipo 6 Tuna Tech</p>
         <p>Integrantes</p>
         <p>Aguilera García Christopher Emmanuel
         <p>Cisneros Mendoza Gerardo Uriel</p>

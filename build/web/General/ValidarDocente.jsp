@@ -1,51 +1,42 @@
+<%@page import="Conexion.Digest"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Conexion.BD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" session="true" %>
 <!DOCTYPE html>
 <%
-    String usuario = request.getParameter("email");
-    String pass = request.getParameter("password");
+    String docente = request.getParameter("email");
+    String pass_docen = request.getParameter("password");
+    String pswd = Digest.bytesToHex(Digest.createSha1(pass_docen));
 
-    if (usuario == null) {
-        usuario = "0";
+    if (docente == null) {
+        docente = "0";
     } else {
-        if (usuario.equals("")) {
-            usuario = "0";
+        if (docente.equals("")) {
+            docente = "0";
         }
     }
-    if (pass == null) {
-        pass = "0";
+    if (pass_docen == null) {
+        pass_docen = "0";
     } else {
-        if (pass.equals("")) {
-            pass = "0";
+        if (pass_docen.equals("")) {
+            pass_docen = "0";
         }
     }
-    if (!usuario.equals("0") && !pass.equals("0")) {
+    if (!docente.equals("0") && !pass_docen.equals("0")) {
         BD bd = new BD();
         bd.conectar();
         int num = 0;
-
-        String strQry = "Select * from Usuario where correo='" + usuario + "'and pass = '" + pass + "'";
+        String strQry = "Select * from Docente where correo_docen='" + docente + "'and pass_docen = '" + pswd + "'";
 
         ResultSet DatosUsu = bd.consulta(strQry);
         if (DatosUsu.next()) {
             HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
-            int idPersona = DatosUsu.getInt("id_usuario");
-            String nombre = DatosUsu.getString("nombre");
-            String tipo = DatosUsu.getString("tipo_usu");
-            miSessiondelUsuario.setAttribute("id_usuario", idPersona);
-            miSessiondelUsuario.setAttribute("Nombre del alumno", nombre);
-            switch (tipo) {
-                case "Alumno":
-                    response.sendRedirect("../Alumno/jsp_A/Menu_A.jsp");
-                    break;
-                case "Docente":
-                    response.sendRedirect("../Docente/jsp_D/Menu_D.jsp");
-                    break;
-                case "Indep":
-                    response.sendRedirect("../Indep/jsp_I/Menu_I.jsp");
-                    break;
-            }
+            int idDocen = DatosUsu.getInt("id_docen");
+            String nombreDocen = DatosUsu.getString("nom_docen");
+            miSessiondelUsuario.setAttribute("id_docen", idDocen);
+            miSessiondelUsuario.setAttribute("Nombre del docente: ", nombreDocen);
+            
+            response.sendRedirect("../Docente/jsp_D/Menu_D.jsp");
         } else {
 
         }

@@ -1,28 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-}
-body{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: rgb(33,37,41);
-    min-height: 100vh;
-}
-
-.tierra div{
-    min-height: 100%;
-    width: 100%;
-    z-index: 1;
-}
-
-a{
-    color: white;
-}
-/** -------------------------------------BARRA DE NAVEGACION --------------------------------------------------------------**/
+/**---------------------BARRA DE NAVEGACION -----------------------------**/
 header{
     position: fixed;
     background: #1E222D;
@@ -119,29 +95,4 @@ header .nav_A ul li ul li .link table{
     width: 37px;
     height:37px;
     margin-right: 140px;
-}
-
-.Principal {
-    flex-direction:  column;
-    top: 23%; 
-    z-index: 0; left: 4%;
-    align-items: center;
-    justify-content: center;
-    align-content:  center;
-    background:  none;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    position: absolute;
-}
-
-.Principal h1 {
-    font-size: 38px;
-}
-
-
-/*** -----------------------------------------------MAPA INTERACTIVO ---------------------------------------------- ***/
-.Mapa_interactivo{
-    z-index: 10;
-    width: 100%;
-    height: 100%;
 }

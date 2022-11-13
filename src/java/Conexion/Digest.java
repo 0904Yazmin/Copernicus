@@ -9,7 +9,6 @@ public class Digest {
     public static final String TAG = "TunaTech";
     private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
 
-    //Metodos Sha1
     public static byte[] createSha1(String text) {
         MessageDigest messageDigest = null;
         byte[] bytes = null;

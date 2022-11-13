@@ -1,3 +1,4 @@
+<%@page import="Conexion.Digest"%>
 <%@page import="Conexion.BD"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,27 +16,38 @@
     </head>
 
     <%
-        //Datos de formulario de registro
+        //Datos de formulario de registro para Estudiante y docente
         String usuario = request.getParameter("TxtUsu");
         String correo = request.getParameter("TxtMail");
-        String pswd = request.getParameter("TxtPass");
         String tipoUsu = request.getParameter("SelectUsu");
+        String pass = request.getParameter("TxtPass");
+        String pswd = Digest.bytesToHex(Digest.createSha1(pass));
+        String strQry = null;
 
-        //Datos del formulario para crear clase
-        String nom_clase = request.getParameter("TxtClase");
-        String gradoClase = request.getParameter("SelectGrado");
-
-        if (!usuario.equals("") && !correo.equals("") && !pswd.equals("") && !tipoUsu.equals("")) {
+        if (!usuario.equals("") && !correo.equals("") && !pass.equals("") && !tipoUsu.equals("")) {
             BD base = new BD();
             try {
-                    base.conectar();
-                    String strQry = "insert into Usuario(nombre, correo, pass, tipo_usu)" + "values( '" + usuario + "','" + correo +  "','" + pswd + "','" + tipoUsu  + "' )";
-                    //out.print(strQry);
-                    int resultadoInsert = base.insertar(strQry);
-                } catch (Exception ex) {
-                    out.print(ex.getMessage());
+                base.conectar();
+                switch (tipoUsu) {
+                    case "Alumno":
+                        strQry = "insert into Estudiante(nom_usuario, correo_usuario, pass_usuario, tipo_usuario)" + "values( '" + usuario + "','" + correo + "','" + pswd + "','" + tipoUsu + "' )";
+                        base.insertar(strQry);
+                        break;
+                    case "Docente":
+                        strQry = "insert into Docente(nom_docen, correo_docen, pass_docen, tipo)" + "values( '" + usuario + "','" + correo + "','" + pswd + "','" + tipoUsu + "' )";
+                        base.insertar(strQry);
+                        break;
+                    case "Independiente":
+                        strQry = "insert into Estudiante(nom_usuario, correo_usuario, pass_usuario, tipo_usuario)" + "values( '" + usuario + "','" + correo + "','" + pswd + "','" + tipoUsu + "' )";
+                        base.insertar(strQry);
+                        break;
                 }
-                response.sendRedirect("Login.jsp"); 
+                
+                
+            } catch (Exception ex) {
+                out.print(ex.getMessage());
+            }
+            response.sendRedirect("Login.jsp");
         }
     %>
 

@@ -17,7 +17,7 @@
         String pass = "";
 
         base.conectar();
-        String strQry = "select * from Usuario where id_usuario='" + id + "'";
+        String strQry = "select * from Estudiante where id_usuario='" + id + "'";
 
         ResultSet info = base.consulta(strQry);
 
@@ -107,9 +107,7 @@
                     <center><td colspan='4'><input id="BtnEditar" name="BtnEditar" type="submit"  class="actu_b" value="Actualizar datos"/></td></center>
                     </tr>
                     <br><br> <br>
-                    <tr>
-                        <td><a  class="link_borrar" href="../jsp/eliminar_alumno.jsp">Borrar cuenta</a> </td>
-                    </tr>
+                 
                 </table>
 
             </div>

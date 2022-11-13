@@ -111,6 +111,22 @@
     transition: .5s;
     color: black;
 }
+.tablita2{
+    padding: 8px;
+    height: 180px; width: 590px;
+    text-align: left;
+    align-items:  flex-start;
+    position: absolute;
+    top: 10%;
+    left: 7%;
+    font-size: 13px;
+}
+.tablita2 td{
+    padding: 8px;
+}
+#FRAME{
+    z-index: 100;
+}
 
 
 /** -------------------------------------------------------------EDITAR DATOS.JSP -----------------------------------------------------------------------**/
@@ -233,7 +249,8 @@
 }
 
 .link_borrar{
-    color: black;
+    color:  #140152;
+    font-weight:  600;
     transition: .8s;
 }
 .link_borrar:hover{
