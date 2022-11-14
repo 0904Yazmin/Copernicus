@@ -82,7 +82,7 @@ header .nav_A ul li ul li{
 }
 header .nav_A ul li:hover > ul{
     display: initial;
-    border-radius: 20px;
+    border-radius: 11px;
     transition: .9s;
 }
 

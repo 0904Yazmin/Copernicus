@@ -13,7 +13,7 @@
     String correo = "";
     BD basesita = new BD();
     basesita.conectar();
-    String datitos = "Select * from Usuario where id_usuario = '" + idPersona + "'";
+    String datitos = "Select * from Estudiante where id_usuario = '" + idPersona + "'";
     ResultSet rsDatosPer = basesita.consulta(datitos);
     if (rsDatosPer.next()) {
         nombre = rsDatosPer.getString(2);
