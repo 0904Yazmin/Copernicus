@@ -1,9 +1,3 @@
-<%-- 
-    Document   : infoForo
-    Created on : 9 nov. 2022, 19:41:51
-    Author     : kim53
---%>
-
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.io.File"%>
 <%@page import="Conexion.BD"%>
@@ -81,9 +75,7 @@
             } catch (Exception ex) {
                 throw new ServletException(ex.getMessage());
             }
-
             BD base = new BD();
-
             String texto = request.getParameter("textoPost");
 
             try {
@@ -101,7 +93,7 @@
                     // String strQry = "insert into imgUsu(id_usuario, imagen) values ( '" + id + " ' , ' " + saveFile + " ' ) ";
                     // ---------------------String str = "insert into Estudiante(foto_usuario) values ( '" + saveFile + " ' ) where id_usuario='" + id + "'";
                     //String strQry = "insert into imgUsu(id_usuario, imagen) values ( '" + id + " ' , ' " + saveFile + " ' ) ";
-                    String dato = "insert into Post(autor_post, correo_usuario, pass_usuario, tipo_usuario)" + "values( '" + usuario + "','" + correo + "','" + pswd + "','" + tipoUsu + "' )";
+                    String dato = "insert into Post(autor_post, msj, id_usuario, id_foro)" + "values( '" + nombre + "','" + correo + "','" + pswd + "','" + tipoUsu + "' )";
                     base.insertar(dato);
 // mmmmmmmmm   String str = "update Post set img_post='" + saveFile + "'where id_usuario='" + id + "'";
 

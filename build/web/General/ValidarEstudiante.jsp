@@ -41,8 +41,9 @@
                 case "Alumno":
                     response.sendRedirect("../Alumno/jsp_A/Menu_A.jsp");
                     break;
-                case "Indep":
-                    response.sendRedirect("../Indep/jsp_I/Menu_I.jsp");
+                case "Independiente":
+                    //response.sendRedirect("../Indep/jsp_I/Menu_I.jsp");
+                    response.sendRedirect("../Indep/html_I/ExamD_Grado.html");
                     break;
             }
         } else {

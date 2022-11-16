@@ -4,7 +4,7 @@
     box-sizing: border-box;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
-    font-size: 11px;
+    font-size: 12px;
 
 }
 body{
@@ -52,16 +52,16 @@ header a{
     position: absolute;
     margin-bottom: 50%;
     width: 31%;
-    top: 16%;
+    top: 22%;
     bottom: 0;
     margin: 0;
     left: 12%;
     border-radius: 9px;
     border: 2px gray;
-    background:  white;
+    background-color: rgba(0, 0, 0, .08);
     height: 68%;
     padding: 20px;
-    color: black;
+    color: #afb2b8;
 }
 h1{
     font-size: 20px;
@@ -133,15 +133,14 @@ h1{
 .footer1{
     align-items:  flex-start;
     float: left;
-
-    padding-left: 200px;
+    padding-left: 170px;
 }
 .footer2{
     align-items:   flex-end;
-
     float: right;
-    padding-right: 200px;
+    padding-right: 170px;
 }
+
 
 
 
@@ -160,7 +159,8 @@ footer {
     padding: 10% 7%;
     position: absolute;
     width: 100%;
-    top: 87%;
+    top: 99%;
+    color: white;
 }
 
 @media screen and (min-width: 768px) {

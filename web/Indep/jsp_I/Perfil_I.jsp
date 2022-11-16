@@ -1,6 +1,6 @@
 <%@page import="Conexion.BD"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page contentType="text/html" pageEncoding="UTF-8" session="true" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%
     HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
@@ -8,30 +8,40 @@
     if (idPersona < 1) {
         response.sendRedirect("../jsp/Menu.jsp");
     }
-    String nombre = "";
-    String correo = "";
-    BD basesita = new BD();
-    basesita.conectar();
-    String datitos = "Select * from Estudiante where id_usuario = '" + idPersona + "'";
-    ResultSet rsDatosPer = basesita.consulta(datitos);
-    if (rsDatosPer.next()) {
-        nombre = rsDatosPer.getString(2);
-        correo = rsDatosPer.getString(3);
-    }
+    try {
+        String nombre = "";
+        String correo = "";
+        String grado = "";
+        String tipo = "";
+        String foto = "";
+
+        BD basesita = new BD();
+        basesita.conectar();
+
+        String datitos = "Select * from Estudiante where id_usuario = '" + idPersona + "'";
+        String info2 = "Select * from imgUsu where id_usuario = '" + idPersona + "'";
+        ResultSet rsDatosPer = basesita.consulta(datitos);
+
+        while (rsDatosPer.next()) {
+            nombre = rsDatosPer.getString(2);
+            correo = rsDatosPer.getString(3);
+            tipo = rsDatosPer.getString(6);
+            grado = rsDatosPer.getString(7);
+            foto = rsDatosPer.getString(5);
+
 %>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Copernicus System</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../Alumno/css_A/menu_A.css" ><!--  -->
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-        </style>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Tu cuenta</title>
+        <link rel="stylesheet" href="../../Alumno/css_A/perfil.css" >
+        <link rel="stylesheet" href="../../Alumno/css_A/menu_A.css" >
+        <style>@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');</style>
+        <style>@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');</style>
         <link rel="shorcut icon" href="../../General/img/logos/Newlogo.png">
     </head>
-    <body>
+    <body id="principal">
     <center>
         <header>
             <a href="Menu_A.jsp" ><img src="../../General/img/logos/Newlogo.png" alt="logo" class="logo"></a>
@@ -65,12 +75,73 @@
         </header>
     </center>
 
-    <div class="tierra">
-        <iframe src='https://my.spline.design/tierra-8cfeeeb49ed78ab4d314507d78c7754c/' frameborder='0' width='100%' height='730vh'></iframe>
+    <nav class="menu_perfil">
+
+    </nav>
+    <div class="dos">
+        <div id="cuadro1">
+            <br>
+            <p><h1>Tu cuenta</h1></p>
+            <p>  <%=nombre%></p>
+            <img src="../../General/img/fulano1.png" alt="imagenFulano" class="imgPerfil">
+        </div>
+
+        <div id="cuadro2">
+            <p>Foto de perfil</p>
+            <%
+                if (rsDatosPer.getString(5) == null) {
+            %>
+            <img src="../../General/img/fotoUsu_0.png" width=130" height="120" alt="foto 0" class="imagenUsuCero"/>
+
+            <%
+            } else {
+
+            %>
+            <img class="imagenUsuCero" src="../../General/Usu_img/fotosPerfil/<%=foto%>" width=130" height="130">
+
+            <%
+                }
+            %>
+
+            <p><a href="EditaDatos_I.jsp" class="editarBtn">Editar datos</a></p>
+
+
+        </div>
+
+
+        <div id="cuadro3">
+            <table class="tablita2">
+                <tr>
+                    <td>Nombre de usuario: </td><td><%=nombre%></td>
+                </tr>
+                <tr>
+                    <td>Correo electrónico: </td><td><%=correo%></td>
+                </tr>
+                <tr>
+                    <td>Tipo de usuario</td><td><%=tipo%></td>
+                </tr>
+                <tr><br>
+                <td><a  class="link_borrar" href="editar/eliminarConfirm.jsp">Borrar cuenta</a></td>
+                <td></td>
+                </tr>
+            </table>
+
+        </div>
+
     </div>
-    <div class="Principal" id="Principal">
-        <h1>Bienvenido  <%=nombre%> </h1>
-    </div>
+
+
+
+    <%            }
+            rsDatosPer.close();
+            basesita.cierraConexion();
+
+        } catch (Exception ex) {
+            out.print(ex.getMessage());
+        }
+        //}
+
+
+    %>
 </body>
 </html>
-

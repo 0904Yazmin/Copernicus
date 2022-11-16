@@ -35,3 +35,4 @@ function corregir(){
     }
     document.getElementById("resultado").innerHTML = cantidad_correctas;
 }
+

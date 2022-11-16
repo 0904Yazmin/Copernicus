@@ -1,6 +1,6 @@
 <%@page import="Conexion.BD"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page contentType="text/html" pageEncoding="UTF-8" session="true" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%
     HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
@@ -8,31 +8,41 @@
     if (idPersona < 1) {
         response.sendRedirect("../jsp/Menu.jsp");
     }
-    String nombre = "";
-    String correo = "";
-    BD basesita = new BD();
-    basesita.conectar();
-    String datitos = "Select * from Estudiante where id_usuario = '" + idPersona + "'";
-    ResultSet rsDatosPer = basesita.consulta(datitos);
-    if (rsDatosPer.next()) {
-        nombre = rsDatosPer.getString(2);
-        correo = rsDatosPer.getString(3);
-    }
+    try {
+        String nombre = "";
+        String correo = "";
+        String grado = "";
+        String tipo = "";
+        String foto = "";
+
+        BD basesita = new BD();
+        basesita.conectar();
+
+        String datitos = "Select * from Estudiante where id_usuario = '" + idPersona + "'";
+        String info2 = "Select * from imgUsu where id_usuario = '" + idPersona + "'";
+        ResultSet rsDatosPer = basesita.consulta(datitos);
+
+        while (rsDatosPer.next()) {
+            nombre = rsDatosPer.getString(2);
+            correo = rsDatosPer.getString(3);
+            tipo = rsDatosPer.getString(6);
+            grado = rsDatosPer.getString(7);
+            foto = rsDatosPer.getString(5);
+
 %>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Copernicus System</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../Alumno/css_A/menu_A.css" ><!--  -->
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-        </style>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Tu cuenta</title>
+        <link rel="stylesheet" href="../../Alumno/css_A/editaDatos.css" >
+        <link rel="stylesheet" href="../../Alumno/css_A/menu_A.css" >
+        <style>@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');</style>
+        <style>@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');</style>
         <link rel="shorcut icon" href="../../General/img/logos/Newlogo.png">
     </head>
-    <body>
-    <center>
+    <body id="principal">
+       <center>
         <header>
             <a href="Menu_A.jsp" ><img src="../../General/img/logos/Newlogo.png" alt="logo" class="logo"></a>
             <nav class="nav_A">
@@ -64,13 +74,33 @@
             </nav>
         </header>
     </center>
+    <div class="dos">
 
-    <div class="tierra">
-        <iframe src='https://my.spline.design/tierra-8cfeeeb49ed78ab4d314507d78c7754c/' frameborder='0' width='100%' height='730vh'></iframe>
+        <div id="cuadro1">
+            <iframe id="FRAME" src="editar/editaPassI.jsp" width="380" height="450" style="border:none; z-index: 100; " scrolling="no" ></iframe>
+        </div>
+
+        <div id="cuadro2">
+            <iframe id="FRAME" src="editar/editaInfoI.jsp" width="350" height="450" style="border:none; z-index: 100; " scrolling="no" ></iframe>
+        </div>
+
+        <div id="cuadro3">
+            <iframe id="FRAME" src="editar/editaFotoI.jsp" width="400" height="450" style="border:none; z-index: 100; " scrolling="no" ></iframe>
+        </div>
+
     </div>
-    <div class="Principal" id="Principal">
-        <h1>Bienvenido  <%=nombre%> </h1>
-    </div>
+
+
+    <%            }
+            rsDatosPer.close();
+            basesita.cierraConexion();
+
+        } catch (Exception ex) {
+            out.print(ex.getMessage());
+        }
+        //}
+
+
+    %>
 </body>
 </html>
-

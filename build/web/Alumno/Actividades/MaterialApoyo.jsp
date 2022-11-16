@@ -35,11 +35,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Material de apoyo</title>
-        <link rel="stylesheet" href="../css_A/perfil.css" >
-        <link rel="stylesheet" href="../css_A/menu_A.css" >
+        <link rel="stylesheet" href="../Alumno/css_A/perfil.css" >
+        <link rel="stylesheet" href="../Alumno/css_A/menu_A.css" >
         <style>@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');</style>
         <style>@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');</style>
-        <link rel="shorcut icon" href="../../General/img/logos/Newlogo.png">
+        <link rel="shorcut icon" href="img/logos/Newlogo.png">
     </head>
     <body>
     <center>
