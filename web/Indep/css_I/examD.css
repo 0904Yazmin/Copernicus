@@ -40,8 +40,8 @@ body{
     left: 12%;
     top: 13%;
     line-height: 26px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0)); -
-    webkit-backdrop-filter: blur(20px); 
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0)); 
+    -webkit-backdrop-filter: blur(20px); 
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
     border: 1px solig rgba(255, 255 , 255, 0.18); 
 }

@@ -11,19 +11,14 @@ html {
     background-size: cover;
 }
 
-body {
-    background:  #000;
-}
-
 a {
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     color: white;
 }
 .menu{
-    background: #150B28;
+    background:  #fff;
     color:  white;
-    font-family: 'Poppins', sans-serif;
 }
 .menu a{
     color: white;
@@ -32,39 +27,41 @@ a {
     font-size: 16px;
 }
 
-.Principal {
-    flex-direction: column;
-    top: 38%; left: 37%;
-     z-index: 0;
-    align-items: center;
-    justify-content: center;
-    background:  none;
-    color: white;
-    font-family: 'Poppins', sans-serif;
+.title{
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100;
     position: absolute;
+    left: 30%;
+    top: 36%;
+    padding: 20px;
+    height: 25vh;
+    width: 40%;
+    color:  #F8F9FA;
+    text-align:  center;
 }
 .frame1{
-    z-index: 1;
+    z-index: -1;
 }
 
-.Principal h1 {
-    font-size: 80px;
-}
-
-.Principal p {
-    font-size: 30px;
-    text-transform: uppercase;
-    color: #113CFC;
+.title h1 {
+    font-size: 70px;
 }
 
 .menu{
-    background: #fff;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     height: 70px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     display: flex;
     position: sticky;
-    bottom: 0;
-    
+    position: -webkit-sticky;
+    top: 90%;
     overflow: hidden;
 }
 .menu a {
@@ -104,16 +101,16 @@ a {
     position: absolute;
     bottom: 0;
     transition: .3s ease-out all;
-    /* transform: translate(-500px); */
+    transform: translate(-500px); 
 }
 
 .seccion {
-    min-height: 100vh;
-    max-width: 800px;
+    min-height: 110vh;
+    max-width: 850px;
     width: 90%;
-    margin: auto;
-
+    margin-top: 200px; 
     padding-top: 120px;
+    margin-left:  auto; margin-right: auto;
     display: flex;
     flex-direction: column;
     align-items: center;

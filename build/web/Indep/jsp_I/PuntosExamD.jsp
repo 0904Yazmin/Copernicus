@@ -16,7 +16,7 @@
     <body>
         <%
             //Datos de formulario de registro para Estudiante y docente
-            int aciertos = Integer.parseInt(request.getParameter(""));
+            int aciertos = Integer.parseInt(request.getParameter("resultado"));
             String strQry = null;
             String[] grado = {"Basico", "Intermedio", "Avanzado"};
             

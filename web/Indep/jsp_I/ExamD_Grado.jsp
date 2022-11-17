@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+page import="Conexion.BD"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+
 <html>
     <head>
         <title>Examen diagnóstico</title>
@@ -300,6 +303,11 @@
                 <section style=" margin-right:  50px;">
                     <button class="botonE" onclick="corregir()">ENVIAR</button><br> <br>
                     
+                    <%
+                        
+                    int aciertos = 
+                    %>
+
                     <h2>Cantidad de aciertos: <span id="resultado" ></span></h2>
                 </section>
             </form>

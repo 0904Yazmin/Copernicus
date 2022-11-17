@@ -33,7 +33,7 @@ grado_usuario varchar (15)
 create table Usuario_Clase(
 id_usuario int,
 id_clase int,
-foreign key(id_usuario) references Usuario(id_usuario),
+foreign key(id_usuario) references Estudiante(id_usuario),
 foreign key(id_clase) references Clases(id_clase)
 );
 
@@ -51,7 +51,7 @@ create table Puntuaciones (
 id_usuario int,
 id_exam int,
 id_ejer int,
-foreign key(id_usuario) references Usuario(id_usuario),
+foreign key(id_usuario) references Estudiante(id_usuario),
 foreign key(id_exam) references Examen(id_exam),
 foreign key(id_ejer) references Ejercicios(id_ejer)
 );
@@ -68,7 +68,7 @@ msj varchar(3000),
 id_usuario int,
 id_docen int,
 id_foro int,
-foreign key(id_usuario) references Usuario(id_usuario),
+foreign key(id_usuario) references Estudiante(id_usuario),
 foreign key(id_docen) references Docente(id_docen),
 foreign key(id_foro) references Foro(id_foro)
 );
@@ -80,7 +80,7 @@ comentario varchar(3000),
 id_usuario int,
 id_docen int,
 id_post int,
-foreign key(id_usuario) references Usuario(id_usuario),
+foreign key(id_usuario) references Estudiante(id_usuario),
 foreign key(id_docen) references Docente(id_docen),
 foreign key(id_post) references Post(id_post)
 );
