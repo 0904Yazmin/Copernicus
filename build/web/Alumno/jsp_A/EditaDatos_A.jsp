@@ -11,23 +11,17 @@
     try {
         String nombre = "";
         String correo = "";
-        String grado = "";
-        String tipo = "";
-        String foto = "";
-
+      
         BD basesita = new BD();
         basesita.conectar();
 
         String datitos = "Select * from Estudiante where id_usuario = '" + idPersona + "'";
-        String info2 = "Select * from imgUsu where id_usuario = '" + idPersona + "'";
+        String info2 = "Select * from imgUsu where id_usuario = '" + idPersona + "'"; // no hagas caso a esto xd
         ResultSet rsDatosPer = basesita.consulta(datitos);
 
         while (rsDatosPer.next()) {
             nombre = rsDatosPer.getString(2);
-            correo = rsDatosPer.getString(3);
-            tipo = rsDatosPer.getString(6);
-            grado = rsDatosPer.getString(7);
-            foto = rsDatosPer.getString(5);
+            
 
 %>
 <!DOCTYPE html>
@@ -77,16 +71,17 @@
     </center>
 
     <div class="dos">
-
-        <div id="cuadro1">
+        <!-- Frames que contienen paginas jsp con los 3 formularios para editar info (foto del usuario, info del usuario y cambio de contraeña)-->
+        
+        <div id="cuadro1"><!-- frame con el jsp para cambiar contraseña-->
             <iframe id="FRAME" src="editar/editaPassA.jsp" width="380" height="450" style="border:none; z-index: 100; " scrolling="no" ></iframe>
         </div>
 
-        <div id="cuadro2">
+        <div id="cuadro2"> <!-- frame con el formulario para editar info de usuario -->
             <iframe id="FRAME" src="editar/editaInfoA.jsp" width="350" height="450" style="border:none; z-index: 100; " scrolling="no" ></iframe>
         </div>
 
-        <div id="cuadro3">
+        <div id="cuadro3"> <!-- frame con formulario para agregar foto de perfil -->
             <iframe id="FRAME" src="editar/editaFotoA.jsp" width="400" height="450" style="border:none; z-index: 100; " scrolling="no" ></iframe>
         </div>
 
@@ -100,7 +95,7 @@
         } catch (Exception ex) {
             out.print(ex.getMessage());
         }
-        //}
+        
 
 
     %>

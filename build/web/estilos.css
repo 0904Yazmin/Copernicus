@@ -50,10 +50,48 @@ nav ul li a{
 }
 .row h1{
     color: white;
-    font-size: 70px;
+    font-size: 68px;
+    margin-bottom: 30px;
 }
-p{
+.contenedor_1 p{
     color: white;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 15px;
+}
+
+button{
+    width: 110px;
+    color: #000;
+    font-size: 12px;
+    padding: 12px 0;
+    background: white;
+    border: 0;
+    outline: none;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+.card{
+    width: 200px;
+    height: 230px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 10px 15px;
+    background-position:  center;
+    background-size: cover;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 15px 25px;
+    color: white;
+    margin-left: 100px;
+    transition: transform 0.5s;
+}
+
+.card1{
+    background-image: url("General/img/card1.jpg");
+}
+.card2{
+    background-image: url("General/img/card2.jpg");
+}
+.card:hover{
+    transform: translateY(-10px);
 }

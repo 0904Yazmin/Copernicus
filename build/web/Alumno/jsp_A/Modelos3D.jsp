@@ -1,3 +1,5 @@
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,7 +11,7 @@
             @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
         </style>
         <link rel="shorcut icon" href="General/img/logos/Newlogo.png">
-        <link href="estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="modelos/estilitosMapas.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="contenedor_1">
@@ -27,21 +29,22 @@
 
             <div class="row">
                 <div class="col">
-                    <h1>Copernicus System</h1>
-                    <p>Copernicus System es un programa interactivo creado con la finalidad de que tu puedas aprender sobre las maravillas del sistema solar</p>
+                    <h1>Mapas</h1>
+                    <p>Aqui encontraras todos los modelos 3D de los planetas</p>
                     <button type="button">Explorar</button>
                 </div>
                 <div class="col">
                     <div class="card card1">
-                        <h5>Hola mundo</h5>
-                        <p>Yazmin Reyes Barquera</p>
+                        <a href="">
+                            <iframe id="FRAME" src="modelos/SSolar.jsp" width="auto" height="auto" style="border:none; z-index: 100; " scrolling="no" ></iframe>
+                        </a>
                     </div>
-                    
+
                     <div class="card card2">
                         <h5>Hola mundo</h5>
                         <p>Yazmin Reyes Barquera</p>
                     </div>
-                 
+
 
                 </div>
             </div>

@@ -1,4 +1,4 @@
-page import="Conexion.BD"%>
+<%@page import="Conexion.BD"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 
@@ -22,7 +22,7 @@ page import="Conexion.BD"%>
         <div class="container">
             <div class="head">
                 <h1>Examen Diagnóstico</h1>
-                <p>Este examen nos ayudará a evaluar tus conocimientos previos sobre Astronomia, de esta manera podemos asignarte un grado de conocimientos adecuado para ti</p>
+                <p>Este examen nos ayudará a evaluar tus conocimientos previos sobre Astronomia, de esta manera podemos asignarte un grado de conocimientos adecuado para tu aprendizaje.</p>
             </div>
             <form name="form" action="../jsp_I/PuntosExamD.jsp" method="post" > 
                 <section id="p0">
@@ -205,110 +205,158 @@ page import="Conexion.BD"%>
 
                 <section id="p10">
                     <h3>11. ¿Cuál es el evento más colosal del universo?</h3>
-                    <label>
-                        <input type="radio" value="1" name="p10" onclick="respuesta(10, this)">Bomba Atómica
-                    </label>
-                    <label>
-                        <input type="radio" value="2" name="p10" onclick="respuesta(10, this)">Llamarada solar
-                    </label>
-                    <label>
-                        <input type="radio" value="3" name="p10" onclick="respuesta(10, this)">Supernova
-                    </label>
+                    <ul>
+                        <li><label>
+                                <input type="radio" value="1" name="p10" onclick="respuesta(10, this)">Bomba Atómica
+                            </label></li>
+                        <li><label>
+                                <input type="radio" value="2" name="p10" onclick="respuesta(10, this)">Llamarada solar
+                            </label></li>
+                        <li><label>
+                                <input type="radio" value="3" name="p10" onclick="respuesta(10, this)">Supernova
+                            </label></li>
+                    </ul>
                 </section>
 
                 <section id="p11">
                     <h3>12. En tamaño, cuál de los siguientes cuerpos celestes es más brillante.</h3>
-                    <label>
-                        <input type="radio" value="1" name="p11" onclick="respuesta(11, this)">Estrella Supermasiva
-                    </label>
-                    <label>
-                        <input type="radio" value="2" name="p11" onclick="respuesta(11, this)">Agujero Negro
-                    </label>
-                    <label>
-                        <input type="radio" value="3" name="p11" onclick="respuesta(11, this)">Cuásar
-                    </label>
+                    <ul>
+                        <li> <label>
+                                <input type="radio" value="1" name="p11" onclick="respuesta(11, this)">Estrella Supermasiva
+                            </label>
+                        </li>
+                        <li><label>
+                                <input type="radio" value="2" name="p11" onclick="respuesta(11, this)">Agujero Negro
+                            </label>
+                        </li>
+                        <li><label>
+                                <input type="radio" value="3" name="p11" onclick="respuesta(11, this)">Cuásar
+                            </label>
+                        </li>                    
+                    </ul>
                 </section>
 
                 <section id="p12">
                     <h3>13. ¿Qué son las constelaciones?</h3>
-                    <label>
-                        <input type="radio" value="1" name="p12" onclick="respuesta(12, this)">Conjuntos de estrellas que formas una figura
-                    </label>
-                    <label>
-                        <input type="radio" value="2" name="p12" onclick="respuesta(12, this)">Símbolos conformados por cuerpos celestes
-                    </label>
-                    <label>
-                        <input type="radio" value="3" name="p12" onclick="respuesta(12, this)">Conjuntos de estrellas que forman un sistema
-                    </label>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="radio" value="1" name="p12" onclick="respuesta(12, this)">Conjuntos de estrellas que formas una figura
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="2" name="p12" onclick="respuesta(12, this)">Símbolos conformados por cuerpos celestes
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="3" name="p12" onclick="respuesta(12, this)">Conjuntos de estrellas que forman un sistema
+                            </label>
+                        </li>
+                    </ul>
                 </section>
 
                 <section id="p13">
                     <h3>14. ¿Qué estrellas componen el cinturón de orión?</h3>
-                    <label>
-                        <input type="radio" value="1" name="p13" onclick="respuesta(13, this)">UY Scuti, Mintaka, Arcturus
-                    </label>
-                    <label>
-                        <input type="radio" value="2" name="p13" onclick="respuesta(13, this)">Alnitak, Alnilam, y Mintaka
-                    </label>
-                    <label>
-                        <input type="radio" value="3" name="p13" onclick="respuesta(13, this)">Alnitak, VY Canis mayoris, Mintaka
-                    </label>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="radio" value="1" name="p13" onclick="respuesta(13, this)">UY Scuti, Mintaka, Arcturus
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="2" name="p13" onclick="respuesta(13, this)">Alnitak, Alnilam, y Mintaka
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="3" name="p13" onclick="respuesta(13, this)">Alnitak, VY Canis mayoris, Mintaka
+                            </label>
+                        </li>
+                    </ul>
                 </section>
 
                 <section id="p14">
                     <h3>15. ¿A cuánto equivale un Parsec?</h3>
-                    <label>
-                        <input type="radio" value="1" name="p14" onclick="respuesta(14, this)">2.34 Años luz
-                    </label>
-                    <label>
-                        <input type="radio" value="2" name="p14" onclick="respuesta(14, this)">3.26 Años luz
-                    </label>
-                    <label>
-                        <input type="radio" value="3" name="p14" onclick="respuesta(14, this)">20 U.A
-                    </label>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="radio" value="1" name="p14" onclick="respuesta(14, this)">2.34 Años luz
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="2" name="p14" onclick="respuesta(14, this)">3.26 Años luz
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="3" name="p14" onclick="respuesta(14, this)">20 U.A
+                            </label>
+                        </li>
+                    </ul>
                 </section>
 
                 <section id="p15">
                     <h3>16. ¿Cómo se llama la estrella mas brillante en el cielo? (Pista: Se encuentra en la constelación de Can Mayor)</h3>
-                    <label>
-                        <input type="radio" value="1" name="p15" onclick="respuesta(15, this)">VY Canis Mayoris
-                    </label>
-                    <label>
-                        <input type="radio" value="2" name="p15" onclick="respuesta(15, this)">Stephenson 218
-                    </label>
-                    <label>
-                        <input type="radio" value="3" name="p15" onclick="respuesta(15, this)">Sirio
-                    </label>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="radio" value="1" name="p15" onclick="respuesta(15, this)">VY Canis Mayoris
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="2" name="p15" onclick="respuesta(15, this)">Stephenson 218
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="3" name="p15" onclick="respuesta(15, this)">Sirio
+                            </label>
+                        </li>
+                    </ul>
                 </section>
 
                 <section id="p16">
                     <h3>17. Elige correctamente la representación de medición sencilla correcta para ángulos</h3>
-                    <label>
-                        <input type="radio" value="1" name="p16" onclick="respuesta(16, this)">Pulgar: 2 grados
-                        Puño: 10 grados
-                        Mano Abierta: 20 grados
-                    </label>
-                    <label>
-                        <input type="radio" value="2" name="p16" onclick="respuesta(16, this)">Pulgar: 1 grados
-                        Puño: 8 grados
-                        Mano Abierta: 30 grados
-                    </label>
-                    <label>
-                        <input type="radio" value="3" name="p16" onclick="respuesta(16, this)">Pulgar: 5 grados
-                        Puño: 10 grados
-                        Mano Abierta: 20 grados
-                    </label>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="radio" value="1" name="p16" onclick="respuesta(16, this)">Pulgar: 2 grados
+                                Puño: 10 grados
+                                Mano Abierta: 20 grados
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="2" name="p16" onclick="respuesta(16, this)">Pulgar: 1 grados
+                                Puño: 8 grados
+                                Mano Abierta: 30 grados
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" value="3" name="p16" onclick="respuesta(16, this)">Pulgar: 5 grados
+                                Puño: 10 grados
+                                Mano Abierta: 20 grados
+                            </label>
+                        </li>
+                    </ul>
+
+
+
                 </section>
-
+                <%
+                    int aciertos = 0;
+                %>
                 <section style=" margin-right:  50px;">
-                    <button class="botonE" onclick="corregir()">ENVIAR</button><br> <br>
-                    
-                    <%
-                        
-                    int aciertos = 
-                    %>
+                    <button class="botonE" onclick="corregir(<%=aciertos%>)">ENVIAR</button><br> <br>
 
-                    <h2>Cantidad de aciertos: <span id="resultado" ></span></h2>
+                    <h2>Cantidad de aciertos: </h2>
+                    <input type="text" value="${aciertos}" id="aciertos" name="aciertos" placeholder="numero de aciertos" readonly="readonly">
                 </section>
             </form>
         </div>

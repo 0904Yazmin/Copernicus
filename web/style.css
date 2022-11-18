@@ -5,91 +5,27 @@
     box-sizing: border-box;
     vertical-align: baseline;
     font-family: 'Poppins', sans-serif;
-}
-body {
-    text-align: center;
-    font-family: sans-serif;
-    height: 100vh;
-    display: flex;
+    color: white;
 }
 
-.head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 63px;
-    background: #171717;
-    position: fixed;
-    width: 100%;
-    z-index: 100;
-}
-
-.navbar {
-    display: flex;
-    margin-right: 10px;
-}
-
-.logo {
-    margin-left: 30px;
-}
 
 .logo a {
     display: block;
     text-decoration: none;
     color: #fff;
-    text-transform: uppercase;
 }
 
 img {
     height: 45px;
     width: 45px;
-    
 }
 
-.navbar a {
-    display: block;
-    padding: 20px 20px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.navbar a:hover {
-    background: #2e0169;
-}
-.link:hover{
-    background-color: #311B93;
-    border-radius: 9px;
-    font-size: 17px;
-    padding: 3px;
-    transition: .6s;
-}
-.link{
-    font-size: 13px;
-}
-
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-    background: url(General/img/fondos/fondoC.jpg) no-repeat center;
-    background-size: cover;
-}
 
 .title {
     margin-bottom: 40px;
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 600;
-    text-transform: uppercase;
     color: #fff;
-}
-
-p {
-    margin-bottom: 40px;
-    font-size: 18px;
-    color: #fff;
-    padding: 0 150px;
 }
 
 .btn {
@@ -123,7 +59,7 @@ p {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    text-align: centers;
+    text-align: center;
 }
 
 .box-container .box {
@@ -288,5 +224,5 @@ p {
     grid-row: 1/-1;
     background-image: url("General/img/pc_3.JPG");
     background-size:  cover;
-    
+
 }

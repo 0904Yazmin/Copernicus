@@ -28,7 +28,6 @@
         int num = 0;
 
         String strQry = "Select * from Estudiante where correo_usuario='" + usuario + "'and pass_usuario = '" + pswd + "'";
-
         ResultSet DatosUsu = bd.consulta(strQry);
         if (DatosUsu.next()) {
             HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
@@ -37,13 +36,19 @@
             String tipo = DatosUsu.getString("tipo_usuario");
             miSessiondelUsuario.setAttribute("id_usuario", idPersona);
             miSessiondelUsuario.setAttribute("Nombre del alumno", nombre);
+            String grado = DatosUsu.getString(7);
+
             switch (tipo) {
                 case "Alumno":
                     response.sendRedirect("../Alumno/jsp_A/Menu_A.jsp");
                     break;
                 case "Independiente":
                     //response.sendRedirect("../Indep/jsp_I/Menu_I.jsp");
-                    response.sendRedirect("../Indep/html_I/ExamD_Grado.html");
+                    if (grado == null) {
+                        response.sendRedirect("../Indep/jsp_I/ExamD_Grado.jsp");
+                    } else {
+                        response.sendRedirect("../Indep/jsp_I/Menu_I.jsp");
+                    }
                     break;
             }
         } else {

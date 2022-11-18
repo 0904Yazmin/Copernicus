@@ -32,10 +32,11 @@ body{
 
 .container{
     background-color:  #F8F8F8;
+    margin-bottom: 80px;
     border-radius: 8px;
     padding: 40px;
     width: 75%;
-    height: 370vh;
+    height: 320vh;
     position:  absolute;
     left: 12%;
     top: 13%;

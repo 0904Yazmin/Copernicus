@@ -73,7 +73,7 @@ h1{
     height: 35px;
     padding: 7px;
     width: 350px;
-    background-color: #D8DEE9;
+    background-color:  #D5CCFF;
     text-align: center;
     font-size: 14px;
 }
@@ -110,7 +110,7 @@ h1{
     right: 9%;
     color: black;
     font-size: 15px;
-    background-color:  #A17EFB;
+    background-color:  white;
 }
 .contenedor1{
     position:  absolute;

@@ -1,31 +1,66 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Conexion.Crear_Clase"%>
+<%@page import="java.security.SecureRandom"%>
 <%@page import="Conexion.BD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Crear clase</title>
     </head>
-        <%      
+
+    <%
+        HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
+
+        int id = (int) (miSessiondelUsuario.getAttribute("id_docen") == null ? 0 : miSessiondelUsuario.getAttribute("id_docen"));
+
         //Datos del formulario para crear clase
+        int len = 8;
         String nom_clase = request.getParameter("TxtClase");
         String gradoClase = request.getParameter("SelectGrado");
+        String clave = Crear_Clase.generarClase(len);
 
         if (!nom_clase.equals("") && !gradoClase.equals("")) {
             BD clasesita = new BD();
             try {
-                    clasesita.conectar();
-                    String infoClass = "insert into Clases(nom_clase, grado)" + "values( '" + nom_clase + "','" + gradoClase + "' )";
-                    //out.print(strQry);
-                    int resultadoInsert = clasesita.insertar(infoClass);
+                clasesita.conectar();
+                // Crear una nueva clase
+                String infoClass = "insert into Clases(nom_clase, grado, clave ,id_docen)" + "values( '" + nom_clase + "','" + gradoClase + "','" + clave + "','" + id + "' )";
+                int resultadoInsert = clasesita.insertar(infoClass);
+
+                try {
+                    // Seleccionar el id de esta nueva clase
+                    String strQry = "Select * from Clases where id_docen ='" + id + "'";
+                    ResultSet Datito = clasesita.consulta(strQry);
+                    if (Datito.next()) {
+                        HttpSession sesionClase = (HttpSession) request.getSession();
+                        int id_class = Datito.getInt(1);
+                        sesionClase.setAttribute("id_clase", id_class);
+
+                        String newForo = "insert into Foro(id_clase)" + "values( '" + id_class + "' )";  //Creamos el foro de la clase apartir del id de la clase creada
+                        clasesita.insertar(newForo);
+                    } else {
+
+                    }
                 } catch (Exception ex) {
                     out.print(ex.getMessage());
                 }
-                //response.sendRedirect("Clasesita.jsp"); 
-                response.sendRedirect("../html_D/CrearClaseForm.html"); 
+
+            } catch (Exception ex) {
+                out.print(ex.getMessage());
+            }
+            //response.sendRedirect("Clasesita.jsp"); 
+            response.sendRedirect("../html_D/CrearClaseForm.html");
         }
     %>
     <body>
-        <h1>Hello World!</h1>
+        <!-- 
+        <script>
+            // location.href = 'https://pablomonteserin.com';
+        </script>
+        -->
+
+
     </body>
 </html>

@@ -1,10 +1,11 @@
 //arreglo que tiene las respuestas correctas
 let correctas = [1,2,2,2,3,2,1,2,1,2,3,3,1,2,2,3,1];
+let cantidad_correctas =document.getElementById('aciertos').value;
 
 //arreglo donde se guardan las respuestas del usuario
 let opcion_elegida=[];
 
-let cantidad_correctas=0;
+//let cantidad_correctas=0;
 
 //función que toma el num de pregunta y el input elegido de esa poregunta
 function respuesta(num_pregunta, seleccionada){
@@ -33,6 +34,6 @@ function corregir(){
             cantidad_correctas++;
         }
     }
-    document.getElementById("resultado").innerHTML = cantidad_correctas;
+    document.getElementById("aciertos").innerJSP = cantidad_correctas;
 }
 
