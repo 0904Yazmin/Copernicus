@@ -16,6 +16,7 @@ create table Clases(
 id_clase int not null auto_increment primary key,
 nom_clase varchar(40),
 grado varchar(15),
+clave varchar(10),
 id_docen int,
 foreign key(id_docen) references Docente(id_docen)
 );
@@ -92,7 +93,12 @@ imagen varchar(100),
 foreign key(id_usuario) references Estudiante(id_usuario) 
 );
 
+#insert into Clases (id_clase, nom_clase, grado, clave) values (1,'Foro Básico','Básico','basico');
+#insert into Clases (id_clase, nom_clase, grado, clave) values (2,'Foro Intermedio','Intermedio','intermedio');
+#insert into Clases (id_clase, nom_clase, grado, clave) values (3,'Foro Avanzado','Avanzado','avanzado');
+
 select * from imgUsu;
 select * from Estudiante;
 select * from Docente;
 select * from Clases;
+select * from Foro;
