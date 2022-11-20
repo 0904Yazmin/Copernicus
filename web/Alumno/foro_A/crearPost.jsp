@@ -1,9 +1,44 @@
-<%-- 
-    Document   : crearPost
-    Created on : 13 nov. 2022, 16:14:19
-    Author     : kim53
---%>
+<%@page import="Conexion.BD"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.ResultSet"%>
+<%
+    HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
+    int idPersona = (int) (miSessiondelUsuario.getAttribute("id_usuario") == null ? 0 : miSessiondelUsuario.getAttribute("id_usuario"));
+    if (idPersona < 1) {
+        response.sendRedirect("../jsp/Menu.jsp");
+    }
+    String nombre = "";
+    String correo = "";
+    String foto = "";
+    String tipo = "";
+    String grado = "";
+
+    BD basesita = new BD();
+    basesita.conectar();
+
+    String datitos = "Select * from Usuario_Clase where id_usuario = '" + idPersona + "'"; // seleccionamos los datos de la clase de la tabla Usuario_Clase
+    ResultSet Datos = basesita.consulta(datitos);
+    String UsuarioInfo = "Select * from Estudiante where id_usuario = '" + idPersona + "'"; //selecionamos los datos del usuario de la tabla Estudiante
+    ResultSet rsDatosPer = basesita.consulta(UsuarioInfo);
+    if (rsDatosPer.next()) {
+        nombre = rsDatosPer.getString(2);
+        correo = rsDatosPer.getString(3);
+        foto = rsDatosPer.getString(5);
+        tipo = rsDatosPer.getString(6);
+        grado = rsDatosPer.getString(7);
+    }
+
+    while (Datos.next()) {
+        int id_class = Datos.getInt(2); // obtenemos la id de la clase (de la tabla Usuario_Clase) para relacionarla con la tabla Clases
+        String info_clase = "Select * from Clases where id_clase = '" + id_class + "'"; // seleccionamos los datos de la tabla Clases
+        ResultSet ClaseInfo = basesita.consulta(info_clase);
+        if (ClaseInfo.next()) {
+
+        }
+
+
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,10 +55,20 @@
     <body id="crearP">
         <div class="div_1">
             <div class="infoClase">
-                <h1>Nombre de la clase</h1>
-                <p>Numero de estudiantes</p>
-                <p>Grado de la clase</p>
-                <p></p>
+                <table>
+                    <tr>
+                        <td><h2>Nombre de la clase:</h2></td>
+                    </tr>
+                    <tr>
+                        <td><%=ClaseInfo.getString(2)%></td>
+                    </tr>
+                    <tr>
+                        <td><h2>Grado de la clase:</h2></td>
+                    </tr>
+                    <tr>
+                        <td><%=ClaseInfo.getString(3)%></td>
+                    </tr>
+                </table>
             </div>
 
 
@@ -51,6 +96,11 @@
                 </form>
             </nav>
         </div>
+        <%            }
 
+            Datos.close();
+
+            basesita.cierraConexion();
+        %>
     </body>
 </html>

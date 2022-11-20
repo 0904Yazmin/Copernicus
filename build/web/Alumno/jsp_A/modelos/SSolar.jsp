@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <iframe src='https://my.spline.design/sscs-cd77217fe52a8cb60f95fc1bd5ffdc1d/' frameborder='0' width='100%' height='700'></iframe>
+        <iframe src='https://my.spline.design/sscs-cd77217fe52a8cb60f95fc1bd5ffdc1d/' frameborder='0' width='1500' height='700'></iframe>
     </body>
 </html>

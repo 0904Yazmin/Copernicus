@@ -31,12 +31,14 @@
 
                 try {
                     // Seleccionar el id de esta nueva clase
-                    String strQry = "Select * from Clases where id_docen ='" + id + "'";
+                    String strQry = "Select max(id_clase) from Clases where id_docen ='" + id + "'";
                     ResultSet Datito = clasesita.consulta(strQry);
                     if (Datito.next()) {
                         HttpSession sesionClase = (HttpSession) request.getSession();
                         int id_class = Datito.getInt(1);
-                        sesionClase.setAttribute("id_clase", id_class);
+                        //System.out.println(id_class);
+                        //System.out.println(strQry);
+                        sesionClase.setAttribute("id_clase", id_class); 
 
                         String newForo = "insert into Foro(id_clase)" + "values( '" + id_class + "' )";  //Creamos el foro de la clase apartir del id de la clase creada
                         clasesita.insertar(newForo);
@@ -50,17 +52,16 @@
             } catch (Exception ex) {
                 out.print(ex.getMessage());
             }
-            //response.sendRedirect("Clasesita.jsp"); 
-            response.sendRedirect("../html_D/CrearClaseForm.html");
+
+            response.sendRedirect("ClasesitaCreada.jsp"); 
+         //   response.sendRedirect("../html_D/CrearClaseForm.html");
         }
     %>
     <body>
         <!-- 
         <script>
-            // location.href = 'https://pablomonteserin.com';
+            // location.href = '';
         </script>
         -->
-
-
     </body>
 </html>

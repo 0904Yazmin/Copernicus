@@ -67,7 +67,7 @@
     </center>
                                 
     <div class="tierra">
-        <iframe src='https://my.spline.design/tierra-8cfeeeb49ed78ab4d314507d78c7754c/' frameborder='0' width='100%' height='900'></iframe>
+        <iframe src='https://my.spline.design/introcopy-9b6d2927d850bc6c37c043957ca73cf3/' frameborder='0' width='1350' height='1000' " scrolling="no"></iframe>
     </div>
     <div class="Principal" id="Principal">
         <center><h1>Bienvenido  <%=nombre%> </h1></center>

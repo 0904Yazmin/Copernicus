@@ -40,10 +40,13 @@
 
             switch (tipo) {
                 case "Alumno":
-                    response.sendRedirect("../Alumno/jsp_A/Menu_A.jsp");
+                    if(grado == null) {
+                        response.sendRedirect("../Alumno/jsp_A/claveLoginClass.jsp");
+                    } else {
+                        response.sendRedirect("../Alumno/jsp_A/Menu_A.jsp");
+                    }
                     break;
                 case "Independiente":
-                    //response.sendRedirect("../Indep/jsp_I/Menu_I.jsp");
                     if (grado == null) {
                         response.sendRedirect("../Indep/jsp_I/ExamD_Grado.jsp");
                     } else {
@@ -67,7 +70,7 @@
     <body>
         <div class="div2">
             <center>
-                <h1>Este usuario no existe</h1>
+                <h1>Este usuario no existe :(</h1>
                 <h3><a href="Login.jsp">Regresar al inicio de sesión</a></h3>
             </center>
         </div>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : foro
-    Created on : 9 nov. 2022, 19:41:29
-    Author     : kim53
---%>
-
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Conexion.BD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,18 +13,34 @@
     String correo = "";
     String foto = "";
     String tipo = "";
+    String grado = "";
 
     BD basesita = new BD();
     basesita.conectar();
-    String datitos = "Select * from Estudiante where id_usuario = '" + idPersona + "'";
-    ResultSet rsDatosPer = basesita.consulta(datitos);
 
-    if (rsDatosPer.next()) {
-        nombre = rsDatosPer.getString(2);
-        correo = rsDatosPer.getString(3);
-        foto = rsDatosPer.getString(5);
-        tipo = rsDatosPer.getString(6);
-    }
+    String UsuarioInfo = "Select * from Estudiante where id_usuario = '" + idPersona + "'"; //selecionamos los datos del usuario de la tabla Estudiante
+    ResultSet rsDatosPer = basesita.consulta(UsuarioInfo);
+    String datitos = "Select * from Usuario_Clase where id_usuario = '" + idPersona + "'"; // seleccionamos los datos de la clase de la tabla Usuario_Clase
+    ResultSet Datos = basesita.consulta(datitos);
+    while (Datos.next()) {
+        int id_class = Datos.getInt(2); // obtenemos la id de la clase (de la tabla Usuario_Clase) para relacionarla con la tabla Clases
+        /**
+         * String info_clase = "Select * from Clases where id_clase = '" +
+         * id_class + "'"; // seleccionamos los datos de la tabla Clases
+         * ResultSet ClaseInfo = basesita.consulta(info_clase); if
+         * (ClaseInfo.next()) { String PostInfo = "Select * from Post where
+         * id_foro = '" + ClaseInfo.getString() + "'"; //selecionamos los datos del usuario de la tabla Estudiante 
+         * ResultSet publi =basesita.consulta(UsuarioInfo);
+         */
+
+        // }
+        if (rsDatosPer.next()) {
+            nombre = rsDatosPer.getString(2);
+            correo = rsDatosPer.getString(3);
+            foto = rsDatosPer.getString(5);
+            tipo = rsDatosPer.getString(6);
+            grado = rsDatosPer.getString(7);
+
 %>
 <html>
     <head>
@@ -44,7 +54,7 @@
         </style>
     </head>
     <body id="foro1">
-      <center>
+    <center>
         <header>
             <a href="Menu_A.jsp" ><img src="../../General/img/logos/Newlogo.png" alt="logo" class="logo"></a>
             <nav class="nav_A">
@@ -55,7 +65,7 @@
                             <ul>
                                 <li><a href="../../General/Actividades/Temario.jsp" class="link" ><img src="../../General/img/Iconos_menu/temario.png" class="imgmenu">Temario</a> </li>
                                 <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu"> Nivel Básico</a></li> 
-                                <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu usu">Nivel Intermedio</a></li> <br>
+                                <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu usu">Nivel Intermedio</a></li> 
                                 <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu">Nivel Avanzado</a></li>
                                 <li><a href="MaterialApoyoA.jsp" class="link" ><img src="../../General/img/Iconos_menu/libros_1.png" class="imgmenu">Material de apoyo</a></li>
                             </ul>
@@ -68,7 +78,7 @@
                             <ul>
                                 <li class="link"><img src="../../General/img/Iconos_menu/correo.png" class="imgmenu"><%=correo%></li>
                                 <li><a href="../jsp_A/Menu_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/home.png" class="imgmenu">   Inicio</a></li> 
-                                <li><a href="../jsp_A/Perfil_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/usuario.png" class="imgmenu usu">Perfil</a></li> <br>
+                                <li><a href="../jsp_A/Perfil_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/usuario.png" class="imgmenu usu">Perfil</a></li> 
                                 <li><a href="../../General/cerrarSesion.jsp" class="link" ><img src="../../General/img/Iconos_menu/salir.png" class="imgmenu"> Cerrar sesión</a></li>
                             </ul>
                         </li>
@@ -79,7 +89,7 @@
     </center>
 
     <div class="contenedor-imagen">
-        <iframe src='https://my.spline.design/tierracopy-ea1e961ca616e388da500eb45a986bfb/' frameborder='0' width='100%' height='1500'></iframe>
+        <iframe src='https://my.spline.design/tierracopy-ea1e961ca616e388da500eb45a986bfb/' frameborder='0' width='1350' height='1500'></iframe>
     </div>
 
     <main id="blog">
@@ -94,15 +104,15 @@
                 <div class="post">
                     <div class="infoPost">
                         <%
-                            if (rsDatosPer.getString(5) == null) {
+                            if (foto == null) {
                         %>
                         <div class="headerPost">
                             <table>
                                 <tr>
-                                    <td><img src="../../General/img/fotoUsu_0.png" width=30" height="20" alt="foto 0" class="imagenUsuCero"/></td>
+                                    <td><img src="../../General/img/fotoUsu_0.png" width="30" height="20" alt="foto 0" class="imagenUsuCero"/></td>
                                     <td>
                                         <h1 class="titulo"><%=nombre%></h1>
-                                        <p> <h3><%=tipo%></h3></p>
+                                        <p> <h3><%=tipo%></h3>
                                     </td>
                                 </tr>
                             </table>
@@ -118,7 +128,7 @@
                         <div class="headerPost">
                             <table>
                                 <tr>
-                                    <td><img class="imagenUsuCero" src="../../General/Usu_img/fotosPerfil/<%=foto%>" width=130" height="130"></td>
+                                    <td><img class="imagenUsuCero" src="../../General/Usu_img/fotosPerfil/<%=foto%>" width="130" height="130"></td>
                                     <td><h1 class="titulo"><%=nombre%></h1></td>
                                 </tr>
                             </table>
@@ -172,6 +182,9 @@
 
         </div>
     </footer>
-
+    <%
+        }
+        }
+    %>
 </body>
 </html>

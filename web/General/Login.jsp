@@ -12,6 +12,10 @@
         <link rel="shorcut icon" href="../General/img/logos/Newlogo.png">
     </head>
     <body>
+
+    </body>
+
+    <body>
         <header>
             <table>
                 <tr>
@@ -30,40 +34,50 @@
         </header>
 
         <div class="cuadro">
-            <p><h1>Iniciar Sesión como estudiante</h1></p> <br>
-        <form name="form" action="ValidarEstudiante.jsp" method="post" > 
             <center>
-                <p><img src="img/Iconos_menu/arroba.png" alt="arroba" class="icons"/><input class="info" type="email" id="TxtCorreo" name="email" placeholder="Ingrese su correo"> <br><br>
-                <p><img src="img/Iconos_menu/pass.png" alt="candado" class="icons"/><input class="info" type="password" id="TxtPass" name="password" placeholder="Ingrese su contraseña"></p>
-                <p><a href="olvidoPass.html" class="linkRegis olvidopass" >¿Olvidaste tu contraseña?</a></p><br > 
+                <p><h1>Iniciar Sesión como Estudiante</h1> <br>
+                <form name="form" action="ValidarEstudiante.jsp" method="post" > 
+                    <div class="section">
+                        <div class="form-group">
+                            <p><img src="img/Iconos_menu/arroba.png" alt="arroba" class="icons"/>
+                                <input  type="email" id="TxtCorreo" name="email" placeholder="Ingrese su correo"/>
+                                <label class="form-label">Correo electrónico</label></p>
+                        </div>
+                        <div class="form-group">
+                            <p><img src="img/Iconos_menu/pass.png" alt="candado" class="icons"/>
+                                <input type="password" id="TxtPass" name="password" placeholder="Ingrese su contraseña"/>
+                                <label class="form-label">Contraseña</label></p>
+                        </div>
 
-                <p><input class="info" type="submit" id="btnLogin" name="btnLogin" value="Iniciar Sesión"></p><br>
-                <p>¿Aún no tienes una cuenta? <a href="Registro.html" class="linkRegis">Registrate</a></p>
+                        <label class="form-label"><p><a href="olvidoPass.html" class="linkRegis olvidopass" >¿Olvidaste tu contraseña?</a></p></label>
+                        <br > 
+
+                        <p><input class="info" type="submit" id="btnLogin" name="btnLogin" value="Iniciar Sesión"></p><br>
+                        <p>¿Aún no tienes una cuenta? <a href="Registro.html" class="linkRegis">Registrate</a></p>
+                    </div>
+                </form>
             </center>
-        </form>
-    </div>
+        </div>
 
-    <div class="tierra">
-        <iframe src='https://my.spline.design/tierracopy-75bc5b92c6c686be9d4697874f43f6f1/' frameborder='0' width='100%' height='1000'></iframe>
-    </div>
+        <div class="tierra">
+            <iframe src='https://my.spline.design/tierracopy-75bc5b92c6c686be9d4697874f43f6f1/' frameborder='0' width='1500' height='1000'></iframe>
+        </div>
 
+        <footer>
+            <div class="footer1">
+                <p>
+                    Copernicus System
+                </p>
+            </div>
+            <div class="footer2">
+                <p>Equipo 6 Tuna tech</p>
+                <p>Integrantes</p>
+                <p>Aguilera García Christopher Emmanuel
+                <p>Cisneros Mendoza Gerardo Uriel</p>
+                <p>García López Arturo</p>
+                <p> Reyes Barquera Yazmin</p>
 
-</body>
-
-<footer>
-    <div class="footer1">
-        <p>
-            Copernicus System
-        </p>
-    </div>
-    <div class="footer2">
-        <p>Equipo 6 Tuna tech</p>
-        <p>Integrantes</p>
-        <p>Aguilera García Christopher Emmanuel
-        <p>Cisneros Mendoza Gerardo Uriel</p>
-        <p>García López Arturo</p>
-        <p> Reyes Barquera Yazmin</p>
-
-    </div>
-</footer>
+            </div>
+        </footer>
+    </body>
 </html>

@@ -16,6 +16,7 @@
             HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
             int id = (int) (miSessiondelUsuario.getAttribute("id_usuario") == null ? 0 : miSessiondelUsuario.getAttribute("id_usuario"));
+
             int MAX_SIZE = 102440 * 10244000;
             String rootPath;
             DataInputStream in = null;
@@ -75,40 +76,57 @@
             } catch (Exception ex) {
                 throw new ServletException(ex.getMessage());
             }
+
             BD base = new BD();
             String texto = request.getParameter("textoPost");
+            String nombre = "";
+            String foto = "";
+            String tipo = "";
+
+            base.conectar();
 
             try {
-                base.conectar();
-                String datitos = "Select * from Estudiante where id_usuario = '" + id + "'";
-                ResultSet rsDatosPer = base.consulta(datitos);
+                String UsuarioInfo = "Select * from Estudiante where id_usuario = '" + id + "'"; //selecionamos los datos del usuario de la tabla Estudiante
+                ResultSet rsDatosPer = base.consulta(UsuarioInfo);
+                String datitos = "Select * from Usuario_Clase where id_usuario = '" + id + "'"; // seleccionamos los datos de la clase de la tabla Usuario_Clase
+                ResultSet Datos = base.consulta(datitos);
+                // obtenemos la id de la clase (de la tabla Usuario_Clase) para relacionarla con la tabla Clases
+                //String info_clase = "Select * from Clases where id_clase = '" + id_class + "'"; // seleccionamos los datos de la tabla Clases
+                //ResultSet ClaseInfo = base.consulta(info_clase);
+                /**
+                 * if (ClaseInfo.next()) { int id_class = Datos.getInt(2); //
+                 * obtenemos la id del foro (de la tabla Usuario_Clase) para
+                 * relacionarla con la tabla Clases }
+                 */
+                if (rsDatosPer.next()) {
+                    while (Datos.next()) {
+                        int id_class = Datos.getInt(2);
+                        nombre = rsDatosPer.getString(2);
+                        foto = rsDatosPer.getString(5);
+                        tipo = rsDatosPer.getString(6);
 
-                while (rsDatosPer.next()) {
-                    String nombre = rsDatosPer.getString(2);
-                    String correo = rsDatosPer.getString(3);
-                    String tipo = rsDatosPer.getString(6);
-                    String grado = rsDatosPer.getString(7);
-                    //String foto = rsDatosPer.getString(5);
+                        // String strQry = "insert into imgUsu(id_usuario, imagen) values ( '" + id + " ' , ' " + saveFile + " ' ) ";
+                        // ---------------------String str = "insert into Estudiante(foto_usuario) values ( '" + saveFile + " ' ) where id_usuario='" + id + "'";
+                        //String strQry = "insert into imgUsu(id_usuario, imagen) values ( '" + id + " ' , ' " + saveFile + " ' ) ";
+                        String dato = "insert into Post(autor_post, msj, id_usuario, id_foro)" + "values( '" + nombre + "','" + texto + "','" + id + "','" + id_class + "' )";
+                        base.insertar(dato);
+                        String str = "update Post set img_post='" + saveFile + "'where id_usuario='" + id + "'";
 
-                    // String strQry = "insert into imgUsu(id_usuario, imagen) values ( '" + id + " ' , ' " + saveFile + " ' ) ";
-                    // ---------------------String str = "insert into Estudiante(foto_usuario) values ( '" + saveFile + " ' ) where id_usuario='" + id + "'";
-                    //String strQry = "insert into imgUsu(id_usuario, imagen) values ( '" + id + " ' , ' " + saveFile + " ' ) ";
-                    String dato = "insert into Post(autor_post, msj, id_usuario, id_foro)" + "values( '" + nombre + "','" + correo + "','" + pswd + "','" + tipoUsu + "' )";
-                    base.insertar(dato);
-// mmmmmmmmm   String str = "update Post set img_post='" + saveFile + "'where id_usuario='" + id + "'";
+                        base.edita(str);
+                        int resultadoEdita = base.edita(str);
 
-                    base.edita(str);
-                    int resultadoEdita = base.edita(str);
-
-                    if (resultadoEdita == 1) {
+                        if (resultadoEdita == 1) {
         %>
         <script>
-            window.alert("La foto de perfil se actualizó correctamente");
+            window.alert("Se ha publicado tu post");
         </script>
 
         <%
+                        }
+                    }
+
                 }
-            }catch (Exception XD) {
+            } catch (Exception XD) {
 
             }
             // request.getRequestDispatcher("ListaABCC.jsp").forward(request, response);

@@ -69,6 +69,7 @@ msj varchar(3000),
 id_usuario int,
 id_docen int,
 id_foro int,
+img_post varchar(70),
 foreign key(id_usuario) references Estudiante(id_usuario),
 foreign key(id_docen) references Docente(id_docen),
 foreign key(id_foro) references Foro(id_foro)
@@ -101,4 +102,12 @@ select * from imgUsu;
 select * from Estudiante;
 select * from Docente;
 select * from Clases;
+select * from Usuario_Clase;
 select * from Foro;
+select * from Post;
+Select max(id_clase) from Clases where id_docen =1;
+
+
+
+
+

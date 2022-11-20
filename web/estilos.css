@@ -35,11 +35,21 @@ nav ul li{
     display: inline-block;
     margin-left: 60px;
 }
+
 nav ul li a{
     text-decoration: none;
     color:  white;
     font-size: 14px;
+    transition: .7s;
 }
+nav ul li a:hover{
+    background-color: #1D2F3D;
+    margin: 12px;
+    border-radius: 20px;
+    transition:  .7s;
+    padding: 6px;
+}
+
 .row{
     display: flex;
     height: 88%;
@@ -66,9 +76,14 @@ button{
     padding: 12px 0;
     background: white;
     border: 0;
+    transition: .4s;
     outline: none;
     margin-top: 30px;
     border-radius: 20px;
+}
+button:hover{
+    padding: 16px;
+    transition: .4s;
 }
 .card{
     width: 200px;

@@ -346,21 +346,47 @@
                         </li>
                     </ul>
 
-
-
                 </section>
-                <%
-                    int aciertos = 0;
-                %>
+
                 <section style=" margin-right:  50px;">
-                    <button class="botonE" onclick="corregir(<%=aciertos%>)">ENVIAR</button><br> <br>
+                    <button class="botonE" onclick="corregir()">ENVIAR</button><br> <br>
 
-                    <h2>Cantidad de aciertos: </h2>
-                    <input type="text" value="${aciertos}" id="aciertos" name="aciertos" placeholder="numero de aciertos" readonly="readonly">
                 </section>
+                <%!
+                    int[] correctas = {1, 2, 2, 2, 3, 2, 1, 2, 1, 2, 3, 3, 1, 2, 2, 3, 1};
+                    int[] opcion_elegida;
+
+                    public void respuesta(int num_pregunta, int seleccionada) {
+
+                        opcion_elegida[num_pregunta] = seleccionada;
+
+                        //String id = "p" + num_pregunta;
+                    }
+                %>
+
+                <%!
+                    public int corregir() {
+                        int cantidad_correctas = 0;
+                        for (int i = 0; i < correctas.length; i++) {
+                            if (correctas[i] == opcion_elegida[i]) {
+                                cantidad_correctas++;
+                            }
+                        }
+                        return cantidad_correctas;
+                        //int aciertos = Integer.parseInt(request.getParameter("resultado"));;
+                    }
+
+
+                %>
+
+
+                <!-- <h2>Cantidad de aciertos: </h2>
+                <input type="text" value="<//%=corregir()%>" id="aciertos" name="aciertos" placeholder="numero de aciertos" readonly="readonly">
+                -->
+                
             </form>
         </div>
 
-        <script src="../Script_Nivel.js"></script>
+
     </body>
 </html>
