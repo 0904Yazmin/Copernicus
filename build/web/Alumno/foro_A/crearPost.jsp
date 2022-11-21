@@ -83,13 +83,15 @@
                         </tr>
                         <tr>
                             <td>
-                                <input id="fileImg" type="file" name="fileImg"  class="fileImg" accept="image/*" required>
+                                <input id="fileImg" type="file" name="fileImg"  class="fileImg" accept="image/*" >
                             </td>
                         </tr>
                         <tr>
+
                             <td>
                                 <input  style="margin-right:35px;" type="reset" class="botoncitos">
-                                <input class="botoncitos" type="submit" id="btnPublicar" name="btnPublicar" onclick="valida()" value="Publicar">
+                                <input class="botoncitos" type="submit" id="btn" name="btnPublicar" onclick="valida()" value="Publicar">
+                                <input type="hidden"  id="current_date" name="current_date" value="">
                             </td>
                         </tr>
                     </table>
@@ -102,8 +104,10 @@
 
             basesita.cierraConexion();
         %>
-
+    
         <script>
+            document.getElementById("current_date").innerHTML = var fecha;
+            fecha = Date();
             function validaVacio() {
                 var textoPost = document.getElementById("textoPost").value;
                 var file = document.getElementById("fileImg").value;
@@ -118,7 +122,7 @@
                 if (!validaVacio())
                     return false;
                 // Contraseña coinicide
-                
+
                 document.prof.submit();
             }
 

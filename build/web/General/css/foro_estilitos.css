@@ -7,7 +7,7 @@ body{
     background-color:  #525151;
 }
 #foro1{
-    background-color: #0C1821;
+    background:  #140D59;
 }
 #crearP{
     background: none;
@@ -111,7 +111,7 @@ main .contenido .fecha {
 
 aside {
     min-width: 42%;
-    margin: 20px 40px 10px -70px;
+    margin: -20px 10px 10px -90px;
     height: 65vh;
     background:  none;
     border-radius: 6px;
@@ -264,10 +264,11 @@ aside .indice a {
 .post{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     padding: 23px;
-    margin: 18px;
+    margin: 18px; 
     border-radius: 6px;
     background-color: white;
     color:  #150B28;
+    width: 157%; height: auto;
 }
 .imagenUsuCero{
     width: 50px;

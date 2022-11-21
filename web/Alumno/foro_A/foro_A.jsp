@@ -14,7 +14,6 @@
     String foto = "";
     String tipo = "";
     String grado = "";
-
     BD basesita = new BD();
     basesita.conectar();
 
@@ -22,26 +21,23 @@
     ResultSet rsDatosPer = basesita.consulta(UsuarioInfo);
     String datitos = "Select * from Usuario_Clase where id_usuario = '" + idPersona + "'"; // seleccionamos los datos de la clase de la tabla Usuario_Clase
     ResultSet Datos = basesita.consulta(datitos);
-    while (Datos.next()) {
+    if (Datos.next()) {
         int id_class = Datos.getInt(2); // obtenemos la id de la clase (de la tabla Usuario_Clase) para relacionarla con la tabla Clases
-        /**
-         * String info_clase = "Select * from Clases where id_clase = '" +
-         * id_class + "'"; // seleccionamos los datos de la tabla Clases
-         * ResultSet ClaseInfo = basesita.consulta(info_clase); if
-         * (ClaseInfo.next()) { String PostInfo = "Select * from Post where
-         * id_foro = '" + ClaseInfo.getString() + "'"; //selecionamos los datos
-         * del usuario de la tabla Estudiante ResultSet publi
-         * =basesita.consulta(UsuarioInfo);
-         */
 
-        // }
+        String info_clase = "Select * from Clases where id_clase = '" + id_class + "'"; // seleccionamos los datos de la tabla Clases
+        ResultSet ClaseInfo = basesita.consulta(info_clase);
+        if (ClaseInfo.next()) {
+            String PostInfo = "Select * from Post where id_foro = '" + id_class + "'"; //selecionamos los datos del usuario de la tabla Estudiante 
+            ResultSet publi = basesita.consulta(PostInfo);
+
+        }
         if (rsDatosPer.next()) {
             nombre = rsDatosPer.getString(2);
             correo = rsDatosPer.getString(3);
             foto = rsDatosPer.getString(5);
             tipo = rsDatosPer.getString(6);
             grado = rsDatosPer.getString(7);
-
+        }
 %>
 <html>
     <head>
@@ -57,7 +53,7 @@
     <body id="foro1">
     <center>
         <header>
-            <a href="Menu_A.jsp" ><img src="../../General/img/logos/Newlogo.png" alt="logo" class="logo"></a>
+            <a href="../jsp_A/Menu_A.jsp" ><img src="../../General/img/logos/Newlogo.png" alt="logo" class="logo"></a>
             <nav class="nav_A">
                 <center>
                     <ul>
@@ -74,7 +70,7 @@
                         <li><a href="../foro_A/foro_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/comentarios.png" class="imgmenu">Foro</a></li>
                         <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/ejercicios.png" class="imgmenu"> Ejercicios</a></li>
                         <li><a href="#" class="link" > <img src="../../General/img/Iconos_menu/puntuaciones.png" class="imgmenu"> Puntuaciones</a></li>
-                        <li><a href="Mapa.jsp" class="link" ><img src="../../General/img/Iconos_menu/coheteM.png" class="imgmenu">Mapa</a></li> 
+                        <li><a href="../jsp_A/Modelos3D.jsp" class="link" ><img src="../../General/img/Iconos_menu/coheteM.png" class="imgmenu">Mapa</a></li> 
                         <li class="opciones"><a class="link" ><img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
                             <ul>
                                 <li class="link"><img src="../../General/img/Iconos_menu/correo.png" class="imgmenu"><%=correo%></li>
@@ -90,7 +86,7 @@
     </center>
 
     <div class="contenedor-imagen">
-        <iframe src='https://my.spline.design/tierracopy-ea1e961ca616e388da500eb45a986bfb/' frameborder='0' width='1400' height='1900'></iframe>
+
     </div>
 
     <main id="blog">
@@ -101,21 +97,29 @@
             </aside>
 
             <div class="contenido">
+                <%
+                    try {
+                        String strQry = "select * from Post";
+                        ResultSet rs = null;
+                        rs = basesita.consulta(strQry);
 
+                        while (rs.next()) {
+                %>
                 <div class="post">
                     <div class="infoPost">
                         <%
-                            if (foto == null) {
+                            if (rs.getString(8) == null) {
                         %>
                         <div class="headerPost">
                             <table>
                                 <tr>
                                     <td><img src="../../General/img/fotoUsu_0.png" width="30" height="20" alt="foto 0" class="imagenUsuCero"/></td>
-                                    <td> <h1 class="titulo"><%=nombre%></h1></td>
+                                    <td> <h1 class="titulo"><%=rs.getString(2)%></h1></td>
                                 </tr>
                             </table>
                         </div>
                         <div class="headerPost">
+                            <%=rs.getString(9)%>
                         </div>
 
                         <%
@@ -125,12 +129,13 @@
                         <div class="headerPost">
                             <table>
                                 <tr>
-                                    <td><img class="imagenUsuCero" src="../../General/Usu_img/fotosPerfil/<%=foto%>" width="130" height="130"></td>
-                                    <td><h1 class="titulo"><%=nombre%></h1></td>
+                                    <td><img class="imagenUsuCero" src="../../General/Usu_img/fotosPerfil/<%=rs.getString(8)%>" width="130" height="130"></td>
+                                    <td><h1 class="titulo"><%=rs.getString(2)%></h1></td>
                                 </tr>
                             </table>
                         </div>
                         <div class="headerPost">
+                            <%=rs.getString(9)%>
                         </div>
                         <%
                             }
@@ -138,7 +143,7 @@
                     </div>
                     <div class="textoPost">
                         <p>
-                            Hola mundo
+                            <%=rs.getString(3)%>
                         </p>
                     </div>
 
@@ -150,28 +155,16 @@
                         </div>
                     </form>
                 </div>
+                <%
+                        }
+                        rs.close();
+                        basesita.cierraConexion();
+                    } catch (Exception ex) {
+                        out.print(ex.getMessage());
+                    }
+                %>
 
-                <div class="post">
-                    <h1 class="titulo">Artículo #2</h1>
-                    <p class="fecha">Publicado el 4 de Marzo de 2021</p>
-                    <p>
-                        Ut sit amet vehicula lectus, nec vestibulum purus. Nulla a nibh magna. Pellentesque commodo commodo sapien eu sagittis. Aenean luctus mauris sit amet quam ornare, eu ultricies nunc auctor. Nulla volutpat purus eu venenatis facilisis. Nulla risus nisl, rhoncus vitae pulvinar nec, viverra eu odio. Duis nisi quam, gravida sed imperdiet sed, viverra fermentum turpis. Cras non iaculis augue, nec scelerisque nibh. Sed auctor dolor mi, sit amet placerat tellus sagittis eu. Curabitur nec luctus dolor. Ut congue rutrum vehicula. Ut viverra tincidunt nunc, vitae cursus nulla scelerisque aliquam.
-                    </p>
-                </div>
-                <div class="post">
-                    <h1 class="titulo">Artículo #3</h1>
-                    <p class="fecha">Publicado el 4 de Marzo de 2021</p>
-                    <p>
-                        Aliquam congue nibh in urna porta blandit. Mauris nec mi elit. Duis ligula quam, suscipit nec hendrerit ac, efficitur pulvinar tortor. Quisque venenatis leo ac hendrerit molestie. Quisque malesuada, enim ut feugiat finibus, sem mi faucibus enim, vel rhoncus ante justo in nibh. Duis sit amet ipsum tempus, pellentesque ex sed, mollis erat. Sed metus nibh, tincidunt vel laoreet eget, bibendum at est.
-                    </p>
-                </div>
-                <div class="post">
-                    <h1 class="titulo">Artículo #4</h1>
-                    <p class="fecha">Publicado el 4 de Marzo de 2021</p>
-                    <p>
-                        Nullam ullamcorper tincidunt laoreet. Donec sapien sapien, egestas id justo et, tincidunt accumsan ipsum. Etiam molestie lectus a consectetur condimentum. Donec malesuada at sapien eu viverra. Integer rutrum libero vitae est semper malesuada. Quisque convallis enim et erat aliquam, a facilisis nunc posuere. Nulla ultrices, turpis in pulvinar feugiat, dolor enim interdum mauris, vitae egestas purus orci vel nibh. Aliquam eleifend est ac eleifend dictum. Nunc condimentum tincidunt placerat. Praesent varius ornare quam vitae placerat. Donec justo sapien, pretium vitae vestibulum at, molestie eu ipsum. Proin non turpis eget risus egestas ornare in nec tortor. Sed commodo lectus vitae tortor blandit, id auctor mauris tempus. Aliquam erat volutpat.
-                    </p>
-                </div>		
+
             </div>
         </div>
     </main>
@@ -181,9 +174,8 @@
 
         </div>
     </footer>
-    <%
-            }
-        }
+    <%            }
+
     %>
 </body>
 </html>

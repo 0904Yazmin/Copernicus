@@ -19,14 +19,15 @@
             base.conectar();
             // Parametros del form CrearPost
             String texto = request.getParameter("textoPost");
-            String img = request.getParameter("filrImg");
+            String img = request.getParameter("fileImg");
+            String date = request.getParameter("current_date");
             String nombre = "";
             String foto = "";
 
             String UsuarioInfo = "";
             if (!texto.equals("") && !img.equals("")) {
 
-                int MAX_SIZE = 102440 * 10244000;
+                int MAX_SIZE = 602440 * 60244000;
                 String rootPath;
                 DataInputStream in = null;
                 FileOutputStream fileOut = null;
@@ -104,10 +105,10 @@
                             int id_class = Datos.getInt(2);
                             nombre = rsDatosPer.getString(2);
                             foto = rsDatosPer.getString(5);
-                            String dato = "insert into Post(autor_post, msj, id_usuario, id_foro, img_autor)" + "values( '" + nombre + "','" + texto + "','" + id + "','" + id_class + "','" + foto + "' )";
+                            String dato = "insert into Post(autor_post, msj, id_usuario, id_foro, img_autor, hora_post)" + "values( '" + nombre + "','" + texto + "','" + id + "','" + id_class + "','" + foto +  "','" + date + "' )";
                             int resultadoEdita = base.insertar(dato);
 
-                            String str = "update Post set img_post='" + saveFile + "'where id_usuario='" + id + "'";
+                            String str = "update Post set img_post='" + saveFile + "', img_autor='" + foto + "' where id_usuario='" + id + "'";
                             int actualizacion = base.edita(str);
 
                             if (resultadoEdita == 3 && actualizacion == 1) {
@@ -144,13 +145,15 @@
                             int id_class = Datos.getInt(2);
                             nombre = rsDatosPer.getString(2);
                             foto = rsDatosPer.getString(5);
-                            String dato = "insert into Post(autor_post, msj, id_usuario, id_foro, img_autor)" + "values( '" + nombre + "','" + texto + "','" + id + "','" + id_class + "','" + foto + "' )";
+                            String dato = "insert into Post(autor_post, msj, id_usuario, id_foro, img_autor, hora_post)" + "values( '" + nombre + "','" + texto + "','" + id + "','" + id_class + "','" + foto +  "','" + date + "' )";
                             int resultadoEdita = base.insertar(dato);
+                            String str = "update Post set img_autor='" + foto + "' where id_usuario='" + id + "'";
+                            int actualizacion = base.edita(str);
 
                             if (resultadoEdita == 1) {
         %>
         <script>
-            window.alert("Se ha publicado tu post");
+            window.alert("Se ha publicado tu post :D");
         </script>
 
         <%

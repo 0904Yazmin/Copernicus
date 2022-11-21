@@ -44,7 +44,7 @@
                                 <li> <a href="Clase_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/clases.png" class="imgmenu"> Clase</a></li>
                                 <li><a href="../../General/Actividades/Lecciones/Nivel2/Lecciones.html" class="link" ><img src="../../General/img/Iconos_menu/lecciones.png" class="imgmenu"> Lecciones <img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
                                     <ul>
-                                        <li><a href="../Actividades/Temario.jsp" class="link" ><img src="../../General/img/Iconos_menu/temario.png" class="imgmenu">Temario</a> </li>
+                                        <li><a href="../../Actividades/Temario.jsp" class="link" ><img src="../../General/img/Iconos_menu/temario.png" class="imgmenu">Temario</a> </li>
                                         <li><a href="../Actividades/Basico.jsp" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu"> Nivel Básico</a></li> 
                                         <li><a  href="../Actividades/Intermedio.jsp"  class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu usu">Nivel Intermedio</a></li> <br>
                                         <li><a  href="../Actividades/Avanzado.jsp"  class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu">Nivel Avanzado</a></li>
@@ -54,7 +54,7 @@
                                 <li><a href="../foro_A/foro_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/comentarios.png" class="imgmenu">Foro</a></li>
                                 <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/ejercicios.png" class="imgmenu"> Ejercicios</a></li>
                                 <li><a href="#" class="link" > <img src="../../General/img/Iconos_menu/puntuaciones.png" class="imgmenu"> Puntuaciones</a></li>
-                                <li><a href="Modelos3D.jsp" class="link" ><img src="../../General/img/Iconos_menu/coheteM.png" class="imgmenu">Mapa</a></li> 
+                                <li><a href="Modelos3D.jsp" class="link" ><img src="../../General/img/Iconos_menu/coheteM.png" class="imgmenu">Mapas</a></li> 
                                 <li class="opciones"><a class="link" ><img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
                                     <ul>
                                         <li class="link"><img src="../../General/img/Iconos_menu/correo.png" class="imgmenu"><%=correo%></li>
@@ -87,57 +87,58 @@
             <a name="primero"></a>
             <div class="row">
                 <div class="col">
-                    <div class="card SOLAR_S" id="solar_s">
-                        <a href="">
-                            <h5>Ir al Sistema solar</h5>
-                        </a>
-                    </div>
-                    <div class="card card4">
-                        <a href="">
-                            <h5>Mercurio</h5>
-                        </a>
-                    </div>
-                    <div class="card card3">
-                        <a href="">
-                            <h5>Venus</h5>
-                        </a>
-                    </div>
-                    <div class="card card1">
-                        <a href="">
-                            <h5>Tierra</h5>
-                        </a>
-                    </div>
-                    <div class="card card2">
-                        <a href="">
-                            <h5>Marte</h5>
-                        </a>
-                    </div>
-                    <div class="card card9">
-                        <a href="">
-                            <h5>Jupiter</h5>
-                        </a>
-                    </div>
-                    <div class="card card7">
-                        <a href="">
-                            <h5>Saturno</h5>
-                        </a>
-                    </div>
-                    <div class="card card5">
-                        <a href="">
-                            <h5>Urano</h5>
-                        </a>
-                    </div>
-                    <div class="card card6">
-                        <a href="">
-                            <h5>Neptuno</h5>
-                        </a>
-                    </div>
-                    <div class="card card8">
-                        <a href="">
-                            <h5>Plutón</h5>
-                        </a>
-                    </div>
 
+                    <a href="modelos/Mapa.jsp">
+                        <div class="card SOLAR_S" id="solar_s">
+                            <h5>Ir al Sistema solar</h5>
+                        </div>
+                    </a>
+                    <a href="modelos/Mercurio.jsp">
+                        <div class="card card4" >
+                            <h5>Mercurio</h5>
+                        </div>
+                    </a>
+                    <a href="modelos/Venus.jsp">
+                        <div class="card card3" >
+                            <h5>Venus</h5>
+                        </div>
+                    </a>
+                    <a href="modelos/Tierra.jsp">
+                        <div class="card card1" >
+                            <h5>Tierra</h5>
+                        </div>
+                    </a>
+                    <a href="modelos/Marte.jsp">
+                        <div class="card card2" >
+                            <h5>Marte</h5>
+                        </div>
+                    </a>
+                    <a href="modelos/Jupiter.jsp">
+                        <div class="card card9" >
+                            <h5>Jupiter</h5>
+                        </div>
+                    </a>
+                    <a href="modelos/Saturno.jsp">
+                        <div class="card card7" >
+                            <h5>Saturno</h5>
+                        </div>
+                    </a>
+                    <a href="modelos/Urano.jsp">
+                        <div class="card card5" >
+                            <h5>Urano</h5>
+                        </div>
+                    </a>
+                    <a href="modelos/Neptuno.jsp">
+                        <div class="card card6" >
+                            <h5>Neptuno</h5>
+                        </div>
+                    </a>
+                    <a href="modelos/Pluton.jsp">
+                        <div class="card card8" >
+                            <h5>Plutón</h5>
+                        </div>
+                    </a>
+                   
                 </div>    
 
             </div>
