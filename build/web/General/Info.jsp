@@ -51,9 +51,6 @@
         }
     %>
 
-    <script src="">
-
-    </script>
 
     <body>
         <h1> </h1>

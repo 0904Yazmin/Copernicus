@@ -36,12 +36,12 @@
                     <div class="section">
                         <div class="form-group">
                             <p><img src="img/Iconos_menu/arroba.png" alt="arroba" class="icons"/>
-                                <input  type="email" id="TxtCorreo" name="email" placeholder="Ingrese su correo"/>
+                                <input  type="email" id="TxtCorreo" name="email" placeholder="Ingrese su correo" required/>
                                 <label class="form-label">Correo electrónico</label></p>
                         </div>
                         <div class="form-group">
                             <p><img src="img/Iconos_menu/pass.png" alt="candado" class="icons"/>
-                                <input type="password" id="TxtPass" name="password" placeholder="Ingrese su contraseña"/>
+                                <input type="password" id="TxtPass" name="password" placeholder="Ingrese su contraseña" required/>
                                 <label class="form-label">Contraseña</label></p>
                         </div>
 

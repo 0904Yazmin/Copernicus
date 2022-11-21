@@ -29,8 +29,9 @@
          * id_class + "'"; // seleccionamos los datos de la tabla Clases
          * ResultSet ClaseInfo = basesita.consulta(info_clase); if
          * (ClaseInfo.next()) { String PostInfo = "Select * from Post where
-         * id_foro = '" + ClaseInfo.getString() + "'"; //selecionamos los datos del usuario de la tabla Estudiante 
-         * ResultSet publi =basesita.consulta(UsuarioInfo);
+         * id_foro = '" + ClaseInfo.getString() + "'"; //selecionamos los datos
+         * del usuario de la tabla Estudiante ResultSet publi
+         * =basesita.consulta(UsuarioInfo);
          */
 
         // }
@@ -89,7 +90,7 @@
     </center>
 
     <div class="contenedor-imagen">
-        <iframe src='https://my.spline.design/tierracopy-ea1e961ca616e388da500eb45a986bfb/' frameborder='0' width='1350' height='1500'></iframe>
+        <iframe src='https://my.spline.design/tierracopy-ea1e961ca616e388da500eb45a986bfb/' frameborder='0' width='1400' height='1900'></iframe>
     </div>
 
     <main id="blog">
@@ -110,15 +111,11 @@
                             <table>
                                 <tr>
                                     <td><img src="../../General/img/fotoUsu_0.png" width="30" height="20" alt="foto 0" class="imagenUsuCero"/></td>
-                                    <td>
-                                        <h1 class="titulo"><%=nombre%></h1>
-                                        <p> <h3><%=tipo%></h3>
-                                    </td>
+                                    <td> <h1 class="titulo"><%=nombre%></h1></td>
                                 </tr>
                             </table>
                         </div>
                         <div class="headerPost">
-                            <h3><%=tipo%></h3>
                         </div>
 
                         <%
@@ -134,7 +131,6 @@
                             </table>
                         </div>
                         <div class="headerPost">
-                            <h3><%=tipo%></h3>
                         </div>
                         <%
                             }
@@ -147,11 +143,14 @@
                     </div>
 
                     <form name="form" action="ValidarUsu.jsp" method="post" > 
-                        <p><input class="postInput" type="text" id="TxtComent" name="comentario" placeholder="Escribe un comentario">
-                            <input class="enviarComent" type="submit" id="btnLogin" name="btnLogin" value="Comentar">
-                        </p>
+                        <h3 style="margin-top: 10px;">Comentarios</h3>
+                        <div style=" display: flex; ">
+                            <input class="postInput" type="text" id="TxtComent" name="comentario" placeholder="Escribe un comentario">
+                            <input class="enviarComent" type="submit" id="btnComent" name="btnComent" value="Comentar">
+                        </div>
                     </form>
                 </div>
+
                 <div class="post">
                     <h1 class="titulo">Artículo #2</h1>
                     <p class="fecha">Publicado el 4 de Marzo de 2021</p>
@@ -183,7 +182,7 @@
         </div>
     </footer>
     <%
-        }
+            }
         }
     %>
 </body>

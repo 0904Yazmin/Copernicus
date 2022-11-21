@@ -38,7 +38,7 @@
             <nav class="nav_A">
                 <center>
                     <ul>
-                        <li> <a href="Clase_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/clases.png" class="imgmenu"> Clase</a></li>
+                        <li> <a href="Clase.jsp" class="link" ><img src="../../General/img/Iconos_menu/clases.png" class="imgmenu"> Clase</a></li>
                         <li><a href="../../General/Actividades/Lecciones/Nivel2/Lecciones.html" class="link" ><img src="../../General/img/Iconos_menu/lecciones.png" class="imgmenu"> Lecciones <img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
                             <ul>
                                 <li><a href="../Actividades/Temario.jsp" class="link" ><img src="../../General/img/Iconos_menu/temario.png" class="imgmenu">Temario</a> </li>
@@ -67,7 +67,7 @@
     </center>
                                 
     <div class="tierra">
-        <iframe src='https://my.spline.design/introcopy-9b6d2927d850bc6c37c043957ca73cf3/' frameborder='0' width='1350' height='1000' " scrolling="no"></iframe>
+        <iframe src='https://my.spline.design/introcopy-9b6d2927d850bc6c37c043957ca73cf3/' frameborder='0' width='1500' height='800' " scrolling="no"></iframe>
     </div>
     <div class="Principal" id="Principal">
         <center><h1>Bienvenido  <%=nombre%> </h1></center>

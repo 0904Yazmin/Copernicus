@@ -78,18 +78,18 @@
                     <table class="tablita" border="0">
                         <tr>
                             <td>
-                                <textarea cols="75" rows="5" name="textoPost" id="textoPost" class="info textArea" placeholder="Escribe lo que quieras"></textarea>
+                                <textarea cols="75" rows="5" name="textoPost" id="textoPost" class="info textArea" placeholder="Escribe lo que quieras" required></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input id="fileImg" type="file" name="fileImg"  class="fileImg" accept="image/*" >
+                                <input id="fileImg" type="file" name="fileImg"  class="fileImg" accept="image/*" required>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <input  style="margin-right:35px;" type="reset" class="botoncitos">
-                                <input class="botoncitos" type="submit" id="btnPublicar" name="btnPublicar" value="Publicar">
+                                <input class="botoncitos" type="submit" id="btnPublicar" name="btnPublicar" onclick="valida()" value="Publicar">
                             </td>
                         </tr>
                     </table>
@@ -102,5 +102,26 @@
 
             basesita.cierraConexion();
         %>
+
+        <script>
+            function validaVacio() {
+                var textoPost = document.getElementById("textoPost").value;
+                var file = document.getElementById("fileImg").value;
+
+                if (textoPost === "" && file === "") {
+                    alert("No dejes los campos vacios");
+                    return false;
+                }
+            }
+            function valida() {
+                // Ninguno campo vacìo
+                if (!validaVacio())
+                    return false;
+                // Contraseña coinicide
+                
+                document.prof.submit();
+            }
+
+        </script>
     </body>
 </html>

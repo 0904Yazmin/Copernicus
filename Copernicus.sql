@@ -70,6 +70,8 @@ id_usuario int,
 id_docen int,
 id_foro int,
 img_post varchar(70),
+img_autor varchar(70),
+tipo_autor varchar(20),
 foreign key(id_usuario) references Estudiante(id_usuario),
 foreign key(id_docen) references Docente(id_docen),
 foreign key(id_foro) references Foro(id_foro)
@@ -87,25 +89,20 @@ foreign key(id_docen) references Docente(id_docen),
 foreign key(id_post) references Post(id_post)
 );
 
-create table imgUsu(
-id_imgUsu int not null auto_increment primary key,
-id_usuario int,
-imagen varchar(100),
-foreign key(id_usuario) references Estudiante(id_usuario) 
-);
 
 #insert into Clases (id_clase, nom_clase, grado, clave) values (1,'Foro Básico','Básico','basico');
 #insert into Clases (id_clase, nom_clase, grado, clave) values (2,'Foro Intermedio','Intermedio','intermedio');
 #insert into Clases (id_clase, nom_clase, grado, clave) values (3,'Foro Avanzado','Avanzado','avanzado');
 
-select * from imgUsu;
+
 select * from Estudiante;
 select * from Docente;
 select * from Clases;
 select * from Usuario_Clase;
 select * from Foro;
 select * from Post;
-Select max(id_clase) from Clases where id_docen =1;
+
+#Select max(id_clase) from Clases where id_docen =1;
 
 
 

@@ -27,9 +27,9 @@
                 <form name="form" action="Info.jsp" method="post" > <!-- la pagina redirigira al inicio de sesion index.htm -->
                     <div class="Principal">
                         <h1>Registrate</h1>
-                        <input class="Registro" type="text" id="TxtNombre" name="TxtUsu" placeholder="Ingrese su Nombre">
-                        <p><input class="Registro" type="email" id="TxtCorreo" name="TxtMail" placeholder="Ingrese su correo">
-                        <p><input class="Registro" type="password" id="TxtPass" name="TxtPass" placeholder="Ingrese su contraseña"><br> <br>
+                        <input class="Registro" type="text" id="TxtNombre" name="TxtUsu" placeholder="Ingrese su Nombre" required>
+                        <p><input class="Registro" type="email" id="TxtCorreo" name="TxtMail" placeholder="Ingrese su correo" required>
+                        <p><input class="Registro" type="password" id="TxtPass" name="TxtPass" placeholder="Ingrese su contraseña" required><br> <br>
                         <p> Únete a Copernicus System como:
                             <select class="Registro tipo" id="SelectUsu" name="SelectUsu" >
                                 <option>Seleccionar</option>
@@ -38,7 +38,7 @@
                                 <option value="Independiente" >Independiente</option>
                             </select>
 
-                        <p><input class="Registro" type="submit" id="btnRegis" name="btnRegis" value="Registrarse"></p>
+                        <p><input class="Registro" type="submit" id="btnRegis" name="btnRegis" value="Registrarse" onclick="valida()"></p>
                         <p>Ya tengo una cuenta   <a href="Login.jsp">Iniciar Sesión </a></p>
 
                     </div>
@@ -46,14 +46,10 @@
 
             </center>
         </div>
-
         <div class="tierra">
             <iframe src='https://my.spline.design/tierracopy-260d91b029384b94b13d1fcc9e173690/' frameborder='0' width='100%' height='840'></iframe>
         </div>
-
-
     </body>
-
     <footer>
         <div class="footer1">
             <p>
@@ -73,5 +69,26 @@
 
         </div>
     </footer>
+    <script>
+        function validaVacio() {
+            var nombre = document.getElementById("TxtNombre").value;
+            var mail = document.getElementById("TxtCorreo").value;
+            var pswd = document.getElementById("TxtPass").value;
+            var tipo = document.getElementById("SelectUsu").value;
 
+            if (nombre === "" && mail === "" && pswd === "" && tipo === "") {
+                alert("No dejes los campos vacios");
+                return false;
+            }
+        }
+        function valida() {
+            // Ninguno campo vacìo
+            if (!validaVacio())
+                return false;
+            // Contraseña coinicide
+
+            document.prof.submit();
+        }
+
+    </script>
 </html>

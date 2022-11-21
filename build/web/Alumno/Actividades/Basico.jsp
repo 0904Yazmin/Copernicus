@@ -68,7 +68,7 @@
     </center>
 
     <div class="contenedor-imagen">
-        <img src="../../General/img/imgActividades/imgBasico.jpg" alt=""/>
+        <img src="../../General/img/img_Lecciones/imgB.jpg" alt=""/>
         <div class="temario">
             <h1>Temario Nivel Básico</h1>
         </div>
@@ -78,23 +78,22 @@
             <aside>
                 <nav class="indice">
                     <section>
-                        <ul id="menu">
-                            <h3 class="titulo">Nivel Básico</h3>
-                            <p>Temario</p>
+                        <ul id="menu">       
                             <li><a href="#primero">Lección 1 </a></li>
                             <li><a href="#segundo">Lección 2</a></li>
-                            <li><a href="">Lección 3</a></li>
-                            <li><a href="">Lección 4</a></li>
+                            <li><a href="#tercero">Lección 3</a></li>
+                            <li><a href="#cuarto">Lección 4</a></li>
                         </ul>
                     </section>
                 </nav>
             </aside>
-
+            <a name="primero"></a>
             <div class="contenido">
+
+
                 <div class="post">
-                    <h1 class="titulo">Lección 1</h1>
+                    <p><h1 class="titulo">Lección 1</h1>
                     <p class="fecha">Conceptos básicos sobre astronomia</p>
-                    <a name="primero"></a>
                     <ul>
                         <li>Tema 1: El espacio exterior</li>
                         <li>Tema 2: ¿Qué es un planeta?, Nombres de los planetas</li>
@@ -102,36 +101,52 @@
                         <li>Tema 4: Asteroides y Cometas</li>
                         <li>Tema 5: ¿Lunas o satélites?</li>
                     </ul>
-                </div>
-
-
-                <div class="post">
+                    <br>
+                    <a href="Lecciones/Nivel_Basico/Leccion1.jsp" id="links">Ir a la lección 1 </a>
                     <a name="segundo"></a>
-                    <h1 class="titulo">Lección 1</h1>
+                </div>
+
+
+                <div class="post">
+                    <h1 class="titulo">Lección 2</h1>
                     <p class="fecha">Conceptos básicos sobre astronomia</p>
                     <ul>
-                        <li>Tema 1: El espacio exterior</li>
-                        <li>Tema 2: ¿Qué es un planeta?, Nombres de los planetas</li>
-                        <li>Tema 3: El sol y las estrellas</li>
-                        <li>Tema 4: Asteroides y Cometas</li>
-                        <li>Tema 5: ¿Lunas o satélites?</li>
+                        <li>Tema 6: ¿Qué es el sistema solar? Y ¿Qué lo conforma?</li>
+                        <li>Tema 7: Rotación y Traslación</li>
                     </ul>
+                    <br>
+                    <a href="Lecciones/Nivel_Basico/Leccion2.jsp" id="links">Ir a la lección 1 </a>
+                    <a name="tercero"></a>
                 </div>
+
 
 
                 <div class="post">
                     <h1 class="titulo">Lección 3</h1>
                     <p class="fecha">Publicado el 4 de Marzo de 2021</p>
-                    <p>
-                        Aliquam congue nibh in urna porta blandit. Mauris nec mi elit. Duis ligula quam, suscipit nec hendrerit ac, efficitur pulvinar tortor. Quisque venenatis leo ac hendrerit molestie. Quisque malesuada, enim ut feugiat finibus, sem mi faucibus enim, vel rhoncus ante justo in nibh. Duis sit amet ipsum tempus, pellentesque ex sed, mollis erat. Sed metus nibh, tincidunt vel laoreet eget, bibendum at est.
-                    </p>
+                    <ul>
+                        <li>Tema 21: Los exoplanetas</li>
+                        <li>Tema 22: Las estrellas, enanas blancas y marrones, colores, Supermasivas, y las supernovas</li>
+                        <li>Tema 23: Las nebulosas</li>
+                        <li>Tema 4: Asteroides y Cometas</li>
+                        <li>Tema 24: Las galaxias</li>
+                    </ul>
+                    <br>
+                    <a href="Lecciones/Nivel_Basico/Leccion3.jsp" id="links">Ir a la lección 3 </a>
                 </div>
+
+                <a name="cuarto"></a>
                 <div class="post">
                     <h1 class="titulo">Lección 4</h1>
                     <p class="fecha">Publicado el 4 de Marzo de 2021</p>
-                    <p>
-                        Nullam ullamcorper tincidunt laoreet. Donec sapien sapien, egestas id justo et, tincidunt accumsan ipsum. Etiam molestie lectus a consectetur condimentum. Donec malesuada at sapien eu viverra. Integer rutrum libero vitae est semper malesuada. Quisque convallis enim et erat aliquam, a facilisis nunc posuere. Nulla ultrices, turpis in pulvinar feugiat, dolor enim interdum mauris, vitae egestas purus orci vel nibh. Aliquam eleifend est ac eleifend dictum. Nunc condimentum tincidunt placerat. Praesent varius ornare quam vitae placerat. Donec justo sapien, pretium vitae vestibulum at, molestie eu ipsum. Proin non turpis eget risus egestas ornare in nec tortor. Sed commodo lectus vitae tortor blandit, id auctor mauris tempus. Aliquam erat volutpat.
-                    </p>
+                    <ul>
+                        <li>Tema 25: Los agujeros negros</li>
+                        <li>Tema 26: Las estrellas de neutrones</li>
+                        <li>Tema 27: Los magnetares</li>
+                        <li>Tema 28: Los cuásares</li>
+                    </ul>
+                    <br>
+                    <a href="Lecciones/Leccion1.jsp" id="links">Ir a la lección 4</a>
                 </div>		
             </div>
         </div>

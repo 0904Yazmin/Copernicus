@@ -115,7 +115,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    margin-bottom: 80px;
 }
 
 .seccion .card {
@@ -170,6 +170,7 @@ a {
 .card dos{
     display: table;
     align-items:  flex-end;
+    margin-bottom: 90px;
 }
 
 .imagenKepler{
