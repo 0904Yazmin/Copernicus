@@ -19,6 +19,7 @@
         int len = 8;
         String nom_clase = request.getParameter("TxtClase");
         String gradoClase = request.getParameter("SelectGrado");
+        String color = request.getParameter("color");
         String clave = Crear_Clase.generarClase(len);
 
         if (!nom_clase.equals("") && !gradoClase.equals("")) {
@@ -26,7 +27,7 @@
             try {
                 clasesita.conectar();
                 // Crear una nueva clase
-                String infoClass = "insert into Clases(nom_clase, grado, clave ,id_docen)" + "values( '" + nom_clase + "','" + gradoClase + "','" + clave + "','" + id + "' )";
+                String infoClass = "insert into Clases(nom_clase, grado, clave ,id_docen, color)" + "values( '" + nom_clase + "','" + gradoClase + "','" + clave + "','" + id +  "','" + color +"' )";
                 int resultadoInsert = clasesita.insertar(infoClass);
 
                 try {

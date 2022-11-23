@@ -39,13 +39,13 @@
             <nav class="nav_A">
                 <center>
                     <ul>
-                        <li> <a href="Clase_A.jsp" class="link" ><img src="../../General/img/Iconos_menu/clases.png" class="imgmenu"> Clase<img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
+                        <li> <a href="ClasesList_D.jsp" class="link" ><img src="../../General/img/Iconos_menu/clases.png" class="imgmenu"> Clases   <img src="../../General/img/Iconos_menu/desplegar.png" style="margin-right: 5px;" class="imgmenu usu"></a>
                             <ul>
                                 <li><a href="../html_D/CrearClaseForm.html" class="link" ><img src="../../General/img/Iconos_menu/mas.png" class="imgmenu">Crear clase</a></li>
                             </ul>
                         </li>
-                        
-                        <li><a href="../../General/Actividades/Lecciones/Nivel2/Lecciones.html" class="link" ><img src="../../General/img/Iconos_menu/lecciones.png" class="imgmenu"> Lecciones <img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
+
+                        <li><a href="../Actividades/Temario.jsp" class="link" ><img src="../../General/img/Iconos_menu/lecciones.png" class="imgmenu"> Lecciones <img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
                             <ul>
                                 <li><a href="../Actividades/Temario.jsp" class="link" ><img src="../../General/img/Iconos_menu/temario.png" class="imgmenu">Temario</a> </li>
                                 <li><a href="../Actividades/Basico.jsp" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu"> Nivel Básico</a></li> 
@@ -54,11 +54,11 @@
                                 <li><a href="../Actividades/MaterialApoyoA.jsp" class="link" ><img src="../../General/img/Iconos_menu/libros_1.png" class="imgmenu">Material de apoyo</a></li>
                             </ul>
                         </li>
-                        <li><a href="../foro_A/foro_D.jsp" class="link" ><img src="../../General/img/Iconos_menu/comentarios.png" class="imgmenu">Foro</a></li>
-                        <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/ejercicios.png" class="imgmenu"> Ejercicios</a></li>
-                        <li><a href="#" class="link" > <img src="../../General/img/Iconos_menu/puntuaciones.png" class="imgmenu"> Puntuaciones</a></li>
-                        <li><a href="Mapa.jsp" class="link" ><img src="../../General/img/Iconos_menu/coheteM.png" class="imgmenu">Mapa</a></li> 
-                        <li class="opciones"><a class="link" ><img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
+                        <li><a href="../foro_D/foro_D.jsp" class="link" ><img src="../../General/img/Iconos_menu/comentarios.png" class="imgmenu">Foro</a></li>
+                        <li><a href="../Actividades/Ejercicios/Ejercicios.jsp" class="link" ><img src="../../General/img/Iconos_menu/ejercicios.png" class="imgmenu"> Ejercicios</a></li>
+                        <li><a href="Puntuaciones.jsp" class="link" > <img src="../../General/img/Iconos_menu/puntuaciones.png" class="imgmenu"> Calificaciones</a></li>
+                        <li><a href="Modelos3D.jsp" class="link" ><img src="../../General/img/Iconos_menu/coheteM.png" class="imgmenu">Mapas</a></li> 
+                        <li class="opciones"><a class="link" ><img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu" style="width: 20px; height: 20px; cursor: pointer; "></a>
                             <ul>
                                 <li class="link"><img src="../../General/img/Iconos_menu/correo.png" class="imgmenu"><%=correo%></li>
                                 <li><a href="Menu_D.jsp" class="link" ><img src="../../General/img/Iconos_menu/home.png" class="imgmenu">   Inicio</a></li> 
@@ -77,7 +77,7 @@
     </div>
     <div class="Principal" id="Principal">
         <h1>Bienvenido  <%=nombre%> </h1>
-        
+
     </div>
 
 </body>

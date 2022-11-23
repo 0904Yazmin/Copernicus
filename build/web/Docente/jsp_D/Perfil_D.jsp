@@ -4,29 +4,26 @@
 <%
     HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
-    int idPersona = (int) (miSessiondelUsuario.getAttribute("id_usuario") == null ? 0 : miSessiondelUsuario.getAttribute("id_usuario"));
+    int idPersona = (int) (miSessiondelUsuario.getAttribute("id_docen") == null ? 0 : miSessiondelUsuario.getAttribute("id_docen"));
     if (idPersona < 1) {
         response.sendRedirect("../jsp/Menu.jsp");
     }
     try {
         String nombre = "";
         String correo = "";
-        String grado = "";
         String tipo = "";
         String foto = "";
 
         BD basesita = new BD();
         basesita.conectar();
 
-        String datitos = "Select * from Usuario where id_usuario = '" + idPersona + "'";
-        String info2 = "Select * from imgUsu where id_usuario = '" + idPersona + "'";
+        String datitos = "Select * from Docente where id_docen = '" + idPersona + "'";
         ResultSet rsDatosPer = basesita.consulta(datitos);
 
         while (rsDatosPer.next()) {
             nombre = rsDatosPer.getString(2);
             correo = rsDatosPer.getString(3);
             tipo = rsDatosPer.getString(6);
-            grado = rsDatosPer.getString(7);
             foto = rsDatosPer.getString(5);
 
 %>
@@ -84,13 +81,13 @@
             <%
                 if (rsDatosPer.getString(5) == null) {
             %>
-            <img src="../../General/img/fotoUsu_0.png" width=130" height="120" alt="foto 0" class="imagenUsuCero"/>
+            <img src="../../General/img/fotoUsu_0.png" width="130" height="120" alt="foto 0" class="imagenUsuCero"/>
 
             <%
             } else {
 
             %>
-            <img class="imagenUsuCero" src="../../General/Usu_img/fotosPerfil/<%=foto%>" width=130" height="130">
+            <img class="imagenUsuCero" src="../../General/Usu_img/fotosPerfil/<%=foto%>" width="130" height="130">
 
             <%
                 }

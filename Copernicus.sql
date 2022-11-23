@@ -18,6 +18,7 @@ nom_clase varchar(40),
 grado varchar(15),
 clave varchar(10),
 id_docen int,
+color varchar(12),
 foreign key(id_docen) references Docente(id_docen)
 );
 

@@ -35,13 +35,17 @@
 
         <form name="formulario" id="formulario" action="../jsp_D/InfoClase.jsp" method="post" > 
             <center>
-                <p><input class="info" type="text" id="TxtClase" name="TxtClase" placeholder="Ingrese el nombre de la clase">
+                <p><input class="info" type="text" id="TxtClase" name="TxtClase" placeholder="Ingrese el nombre de la clase" required="">
                 <p> Grado de la clase:
-                    <select class="info grado" id="Grado" name="SelectGrado">
+                    <select class="info grado" id="Grado" name="SelectGrado" required>
                         <option value="Basico" >Básico</option>
                         <option value="Intermedio" >Intermedio</option>
                         <option value="Avanzado" >Avanzado</option>
-                    </select>  <br> <br> <br><br>
+                    </select>  
+                </p>
+                <label style="margin-right:20px;" >Elige un color para la clase </label>
+                <label> <input style="border: none; " type="color" id="color" name="color" value="#ffffff" required></label>
+                <br> <br>
                 <p><input class="info" type="submit" id="btnLogin" name="btnLogin" value="Crear clase"></p>
                 <br> <a href="../jsp_D/Menu_D.jsp" >Regresar a menú</a>
             </center>

@@ -3,15 +3,15 @@
 <%
     HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
-    int idPersona = (int) (miSessiondelUsuario.getAttribute("id_usuario") == null ? 0 : miSessiondelUsuario.getAttribute("id_usuario"));
-    if (idPersona < 1) {
+    int idProf = (int) (miSessiondelUsuario.getAttribute("id_docen") == null ? 0 : miSessiondelUsuario.getAttribute("id_docen"));
+    if (idProf < 1) {
         response.sendRedirect("../jsp/Menu.jsp");
     }
     String nombre = "";
     String correo = "";
     BD basesita = new BD();
     basesita.conectar();
-    String datitos = "Select * from Usuario where id_usuario = '" + idPersona + "'";
+    String datitos = "Select * from Docente where id_docen = '" + idProf + "'";
     ResultSet rsDatosPer = basesita.consulta(datitos);
 
     if (rsDatosPer.next()) {

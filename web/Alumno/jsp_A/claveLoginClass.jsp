@@ -34,7 +34,7 @@
                 <form name="form" action="validarClave.jsp" method="post" > 
                     <div class="section">
                         <div class="form-group">
-                            <input  type="text" id="code" name="code" placeholder="Ingrese su correo" style="color:black"/>
+                            <input  type="text" id="code" name="code" placeholder="codigo" style="color:black" required=""/>
                             <label class="form-label">Código de la clase</label>
                         </div>
                         <p><input class="info" type="submit" id="btnLogin" name="btnLogin" value="Unirse a la clase"></p><br>
