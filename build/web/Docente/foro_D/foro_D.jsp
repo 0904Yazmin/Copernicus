@@ -69,7 +69,7 @@
                                     id_clase = Integer.parseInt(rs.getString(1));
                         %>
                         <li class="nav-link">
-                            <a href="Posts.jsp?id_clase=<%=id_clase%>" target="postList" target="postList">
+                            <a href="Posts_1.jsp?id_clase=<%=id_clase%>" target="postList"  >
                                 <i class='bx bx-pencil icon' style="margin-right: -6px;"></i>
                                 <span class="text nav-text"><%=rs.getString(2)%></span>
                             </a>
@@ -99,7 +99,7 @@
 
         <section class="home">
             <div class="PostsFrame">
-                <iframe name="postList" src="MenusPost.jsp" style="width:37%; height: 100vh; display: table; float: left; border: none;"  ></iframe>
+                <iframe name="postMenu" src="MenusPost.jsp" style="width:37%; height: 100vh; display: table; float: left; border: none;"  ></iframe>
                 <iframe name="postList" src="Posts_1.jsp" style="width: 63%; height: 100vh; display: table; float: right; border: none;" ></iframe>
             </div>
 

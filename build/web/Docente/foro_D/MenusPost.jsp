@@ -2,6 +2,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.ResultSet"%>
 <%
+    /**
     HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
     int idPersona = (int) (miSessiondelUsuario.getAttribute("id_docen") == null ? 0 : miSessiondelUsuario.getAttribute("id_docen"));
@@ -9,34 +10,12 @@
         response.sendRedirect("../jsp/Menu.jsp");
     }
     String nombre = "";
-    String correo = "";
-    String foto = "";
-    String tipo = "";
-    String grado = "";
-
+    String clave = "";
+    String color = "";
+    String grado= "";
     BD basesita = new BD();
     basesita.conectar();
-
-    String datitos = "Select * from Usuario_Clase where id_usuario = '" + idPersona + "'"; // seleccionamos los datos de la clase de la tabla Usuario_Clase
-    ResultSet Datos = basesita.consulta(datitos);
-    String UsuarioInfo = "Select * from Docente where id_docen = '" + idPersona + "'"; //selecionamos los datos del usuario de la tabla Estudiante
-    ResultSet rsDatosPer = basesita.consulta(UsuarioInfo);
-    if (rsDatosPer.next()) {
-        nombre = rsDatosPer.getString(2);
-        correo = rsDatosPer.getString(3);
-        foto = rsDatosPer.getString(5);
-        tipo = rsDatosPer.getString(6);
-    }
-
-    while (Datos.next()) {
-        int id_class = Datos.getInt(2); // obtenemos la id de la clase (de la tabla Usuario_Clase) para relacionarla con la tabla Clases
-        String info_clase = "Select * from Clases where id_clase = '" + id_class + "'"; // seleccionamos los datos de la tabla Clases
-        ResultSet ClaseInfo = basesita.consulta(info_clase);
-        if (ClaseInfo.next()) {
-
-        }
-
-
+**/
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -52,11 +31,26 @@
     </head>
     <body id="crearP">
         <div class="div_1">
+            <%              /**  try {
+                    int id_clasesita = Integer.parseInt(request.getParameter("id_clase"));
+                    String strQry = "select * from Clases where id_clase='" + id_clasesita + "'";
+                    ResultSet rs = null;
+                    rs = basesita.consulta(strQry);
 
+                    while (rs.next()) {
+                        nombre = rs.getString(2);
+                        clave = rs.getString(4);
+                        grado = rs.getString(3);
+                        color = rs.getString(6);
+**/
+            %>
             <div class="infoClase">
                 <aside class="card">
-                    <h1>Nombre de la clasesita de muestra</h1>
-                    <div class="clip"><div style="display: flex; color: white;"> <p>Grado de la clase: </p></div></div>
+                    <h1>Clase</h1>
+                    <div class="clip" style="background-color: #1B2A41; font-size: 13px; line-height: 15px;">
+                        <div style="display: flex; color: white;"> <p>Grado de la clase: </p></div>
+                        <div style="display: flex; color: white;"> <p>Clave: </p></div>
+                    </div>
                 </aside>
             </div>
 
@@ -89,11 +83,16 @@
                 </form>
             </nav>
         </div>
-        <%            }
+        <%         /**           }
 
-            Datos.close();
+                rs.close();
 
-            basesita.cierraConexion();
+                basesita.cierraConexion();
+            } catch (Exception ex) {
+                out.print(ex.getMessage());
+            }
+
+**/
         %>
 
         <script>

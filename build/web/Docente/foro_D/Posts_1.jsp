@@ -3,7 +3,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<% /**
+<%
     HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
     int idPersona = (int) (miSessiondelUsuario.getAttribute("id_docen") == null ? 0 : miSessiondelUsuario.getAttribute("id_docen"));
@@ -13,10 +13,10 @@
     String nombre = "";
     String foto = "";
     String tipo = "";
-    String grado = "";
+    String textoPost = "";
     BD basesita = new BD();
     basesita.conectar();
-**/
+
 %>
 <html>
     <head>
@@ -36,7 +36,7 @@
                 <p><h1>Publicaciones de la clase</h1>
             </div>
 
-            <%              /**  try {
+            <%                try {
                     int id_foro = Integer.parseInt(request.getParameter("id_clase"));
                     String strQry = "select * from Post where id_foro='" + id_foro + "'";
                     ResultSet rs = null;
@@ -44,17 +44,27 @@
 
                     while (rs.next()) {
                         nombre = rs.getString(2);
-                        nombre = rs.getString(2);
-                        nombre = rs.getString(2);
-                        nombre = rs.getString(2); **/
+                        foto = rs.getString(8);
+                        textoPost = rs.getString(3);
+                        //tipo = rs.getString(2);
+
             %>
             <div id="post">
                 <div>
                     <table id="tablaInfo">
                         <tr>
+                            <%                                if(foto == null) {
+                            %>
                             <td rowspan="2"><img src="../../General/img/fotoUsu_0.png"  alt="foto 0" id="imagenUsuCero" style="margin-right: -20px;"/></td>
-                            <td><h1>Nombre</h1></td>
-                            <td style="text-align: right;">Tipo de alumno</td>
+                                <%
+                                } else {
+
+                                %>
+                            <td rowspan="2"><img class="imagenUsuCero" src="../../General/Usu_img/fotosPerfil/<%=foto%>" style="margin-right: -20px; border-radius: 100px;"  width="60" height="60"></td>
+                            <%                                }
+                            %>
+                            <td><h1><%=nombre%></h1></td>
+                            <td style="text-align: right;">Tipo de alumno</td> 
                         </tr>
                         <tr>
                             <td><h3>Fecha de publi</h3></td>
@@ -65,7 +75,7 @@
 
                 <div id="txtPost">
                     <p>
-                        o creatives! This time I bring you a clean user interface concept I created for proje
+                        <%=textoPost%>
                     </p>
                     <div id="ImagePost">
                         <img src="fondo.jpg"  alt="image" style="width: 90%; height: 40%; " id="ImagePost"/>
@@ -82,7 +92,7 @@
                     </form>
                 </div>
             </div>
-            <%   /**             }
+            <%                    }
 
                     rs.close();
 
@@ -90,7 +100,8 @@
                 } catch (Exception ex) {
                     out.print(ex.getMessage());
                 }
-            **/
+
+
             %>
 
 
