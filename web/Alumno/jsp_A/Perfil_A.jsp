@@ -82,7 +82,7 @@
     <div class="dos">
         <div id="cuadro1">
             <br>
-            <p><h1>Tu cuenta</h1></p>
+            <p><h1>Tu cuenta</h1>
             <p>  <%=nombre%></p>
             <img src="../../General/img/fulano1.png" alt="imagenFulano" class="imgPerfil">
         </div>
@@ -92,21 +92,18 @@
             <%
                 if (rsDatosPer.getString(5) == null) {
             %>
-            <img src="../../General/img/fotoUsu_0.png" width=130" height="120" alt="foto 0" class="imagenUsuCero"/>
+            <img src="../../General/img/fotoUsu_0.png" width="130" height="120" alt="foto 0" class="imagenUsuCero"/>
 
             <%
             } else {
 
             %>
-            <img class="imagenUsuCero" src="../../General/Usu_img/fotosPerfil/<%=foto%>" width=130" height="130">
+            <img class="imagenUsuCero" src="../../General/Usu_img/fotosPerfil/<%=foto%>" width="130" height="130">
 
             <%
                 }
             %>
-
             <p><a href="EditaDatos_A.jsp" class="editarBtn">Editar datos</a></p>
-
-
         </div>
 
 

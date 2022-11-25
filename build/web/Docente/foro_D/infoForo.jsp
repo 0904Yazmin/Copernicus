@@ -20,20 +20,23 @@
             // Parametros del form CrearPost
             String texto = request.getParameter("textoPost");
             String img = request.getParameter("fileImg");
-            String date = request.getParameter("current_date");
+            String date = request.getParameter("hora");
+            String idclase = request.getParameter("idclase");
             String nombre = "";
             String foto = "";
+            String tipo = "";
 
             String UsuarioInfo = "";
             if (!texto.equals("") && !img.equals("")) {
 
-                int MAX_SIZE = 602440 * 60244000;
+                int MAX_SIZE = 102440 * 10244000;
                 String rootPath;
                 DataInputStream in = null;
                 FileOutputStream fileOut = null;
                 String remoteAddr = request.getRemoteAddr();
                 String serverName = request.getServerName();
-                String realPath = "D:\\Copernicus\\Tuna_Tech\\web\\General\\Usu_img\\fotosForo\\";
+                //String realPath = "D:\\Copernicus\\Tuna_Tech\\web\\General\\Usu_img\\fotosForo\\";
+                String realPath = "G:\\Copernicus\\Tuna_Tech\\web\\General\\Usu_img\\fotosForo\\";
                 rootPath = realPath;
                 String contentType = request.getContentType();
                 String saveFile = "";
@@ -90,35 +93,27 @@
                 try {
                     UsuarioInfo = "Select * from Docente where id_docen = '" + id + "'"; //selecionamos los datos del usuario de la tabla Estudiante
                     ResultSet rsDatosPer = base.consulta(UsuarioInfo);
-                    String datitos = "Select * from Usuario_Clase where id_usuario = '" + id + "'"; // seleccionamos los datos de la clase de la tabla Usuario_Clase
+                    String datitos = "Select * from Clases where id_clase = '" + idclase + "'"; // seleccionamos los datos de la clase de la tabla Usuario_Clase
                     ResultSet Datos = base.consulta(datitos);
-                    // obtenemos la id de la clase (de la tabla Usuario_Clase) para relacionarla con la tabla Clases
-                    //String info_clase = "Select * from Clases where id_clase = '" + id_class + "'"; // seleccionamos los datos de la tabla Clases
-                    //ResultSet ClaseInfo = base.consulta(info_clase);
-                    /**
-                     * if (ClaseInfo.next()) { int id_class = Datos.getInt(2);
-                     * // obtenemos la id del foro (de la tabla Usuario_Clase)
-                     * para relacionarla con la tabla Clases }
-                     */
+
                     if (rsDatosPer.next()) {
-                        while (Datos.next()) {
-                            int id_class = Datos.getInt(2);
+                        while(Datos.next()) {
                             nombre = rsDatosPer.getString(2);
                             foto = rsDatosPer.getString(5);
-                            String dato = "insert into Post(autor_post, msj, id_docen, id_foro, img_autor, hora_post)" + "values( '" + nombre + "','" + texto + "','" + id + "','" + id_class + "','" + foto +  "','" + date + "' )";
+                            String dato = "insert into Post(autor_post, msj, id_docen, id_foro, img_post, img_autor, hora_post)" + "values( '" + nombre + "','" + texto + "','" + id + "','" + idclase + "','" + saveFile + "','" + foto + "','" + date + "' )";
                             int resultadoEdita = base.insertar(dato);
 
-                            String str = "update Post set img_post='" + saveFile + "', img_autor='" + foto + "' where id_usuario='" + id + "'";
+                            String str = "update Post set img_post= ' " + saveFile + " ', img_autor= '" + foto + "' ,  autor_post=' " + nombre + " '  where id_usuario='" + id + "'";
                             int actualizacion = base.edita(str);
-
-                            if (resultadoEdita == 3 && actualizacion == 1) {
+                            out.print("hola" + saveFile);
+                           // if (resultadoEdita == 3 && actualizacion == 1) {
         %>
         <script>
-            window.alert("Se ha publicado tu post");
+            window.alert(saveFile);
         </script>
 
         <%
-                        }
+                        //}
                     }
                 }
             } catch (Exception XD) {
@@ -128,26 +123,17 @@
         } else {
             if (!texto.equals("") && img.equals("")) {
                 try {
-                    UsuarioInfo = "Select * from Estudiante where id_usuario = '" + id + "'"; //selecionamos los datos del usuario de la tabla Estudiante
+                    UsuarioInfo = "Select * from Docente where id_docen = '" + id + "'"; //selecionamos los datos del usuario de la tabla Docente
                     ResultSet rsDatosPer = base.consulta(UsuarioInfo);
-                    String datitos = "Select * from Usuario_Clase where id_usuario = '" + id + "'"; // seleccionamos los datos de la clase de la tabla Usuario_Clase
+                    String datitos = "Select * from Clases where id_clase = '" + idclase + "'"; // seleccionamos los datos de la clase de la tabla Usuario_Clase
                     ResultSet Datos = base.consulta(datitos);
-                    // obtenemos la id de la clase (de la tabla Usuario_Clase) para relacionarla con la tabla Clases
-                    //String info_clase = "Select * from Clases where id_clase = '" + id_class + "'"; // seleccionamos los datos de la tabla Clases
-                    //ResultSet ClaseInfo = base.consulta(info_clase);
-                    /**
-                     * if (ClaseInfo.next()) { int id_class = Datos.getInt(2);
-                     * // obtenemos la id del foro (de la tabla Usuario_Clase)
-                     * para relacionarla con la tabla Clases }
-                     */
                     if (rsDatosPer.next()) {
                         while (Datos.next()) {
-                            int id_class = Datos.getInt(2);
                             nombre = rsDatosPer.getString(2);
                             foto = rsDatosPer.getString(5);
-                            String dato = "insert into Post(autor_post, msj, id_usuario, id_foro, img_autor, hora_post)" + "values( '" + nombre + "','" + texto + "','" + id + "','" + id_class + "','" + foto +  "','" + date + "' )";
+                            String dato = "insert into Post(autor_post, msj, id_docen, id_foro, img_autor, hora_post)" + "values( '" + nombre + "','" + texto + "','" + id + "','" + idclase + "','" + foto + "','" + date + "' )";
                             int resultadoEdita = base.insertar(dato);
-                            String str = "update Post set img_autor='" + foto + "' where id_usuario='" + id + "'";
+                            String str = "update Post set autor_post='" + nombre + "', img_autor='" + foto + "' where id_docen='" + id + "'";
                             int actualizacion = base.edita(str);
 
                             if (resultadoEdita == 1) {

@@ -16,7 +16,9 @@
     FileOutputStream fileOut = null;
     String remoteAddr = request.getRemoteAddr();
     String serverName = request.getServerName();
-    String realPath = "D:\\Copernicus\\Tuna_Tech\\web\\General\\Usu_img\\fotosPerfil\\";
+    //String realPath = "D:\\Copernicus\\Tuna_Tech\\web\\General\\Usu_img\\fotosPerfil\\";
+    //String realPath = "G:\\Copernicus\\Tuna_Tech\\web\\General\\Usu_img\\fotosPerfil\\";
+    String realPath = "C:\\Users\\kim53\\OneDrive\\Imágenes\\Copernicus\\Tuna_Tech\\web\\General\\Usu_img\\fotosPerfil\\";
     rootPath = realPath;
     String contentType = request.getContentType();
     String saveFile = "";

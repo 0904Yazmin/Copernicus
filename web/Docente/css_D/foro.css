@@ -24,8 +24,8 @@ body{
 
 #publicaciones{
     background-color:  #d9d9d9;
-    width: 100%;
-    height: 100%;
+    width: 65%;
+    height: 100%; display: table; float: right; border: none;
     padding-bottom: 40px;
 }
 #post{
@@ -141,9 +141,9 @@ aside.card:hover .clip{
 }
 /** -------------------------------------------------------Crear post --------------**/
 .textArea{
-    max-width: 320px;
-    min-width: 320px;
-    min-height: 80px;
+    max-width: 260px;
+    min-width: 260px;;
+    min-height: 45%;
     border: none;
     background-color:  #171717;
     border-radius: 4px;
@@ -154,7 +154,7 @@ aside.card:hover .clip{
     background-color:  #140D59;
 }
 .botoncitos{
-    width: 100%;
+    width: 75%;
     background-color:  #171717;
     color: white;
     border: none;
@@ -163,7 +163,6 @@ aside.card:hover .clip{
     transition: .7s;
 }
 .botoncitos:hover{
-    background-color:  #22007C;
     transition: .7s;
 }
 .tablita{
@@ -171,4 +170,13 @@ aside.card:hover .clip{
 }
 .tablita td{
     padding-top: 15px;
+}
+#frameMenu{
+    width:100%; height: 100vh; 
+    display: table; float: left; 
+    border: none;
+    scrolling: no;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 10%;
 }

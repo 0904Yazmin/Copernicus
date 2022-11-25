@@ -39,7 +39,7 @@
             <header id="header2">
                 <div class="image-text">
                     <span class="image">
-                        <img src="../../General/img/logos/Newlogo.png" alt="" class="bx icon"  width="5px" height="5px"/>
+                        <img src="../../General/img/logos/Newlogo.png" class="bx icon"  width="5px" height="5px" />
                     </span>
                     <div class="text logo-text">
                         <br> 
@@ -61,7 +61,7 @@
                         </li>
                         <%
                             try {
-                                String strQry = "select * from Clases";
+                                String strQry = "select * from Clases where id_docen = '" + idPersona + "'";
                                 ResultSet rs = null;
                                 rs = basesita.consulta(strQry);
                                 int id_clase;
@@ -99,8 +99,7 @@
 
         <section class="home">
             <div class="PostsFrame">
-                <iframe name="postMenu" src="MenusPost.jsp" style="width:37%; height: 100vh; display: table; float: left; border: none;"  ></iframe>
-                <iframe name="postList" src="Posts_1.jsp" style="width: 63%; height: 100vh; display: table; float: right; border: none;" ></iframe>
+                <iframe name="postList" src="Posts_1.jsp" style="width: 100%; height: 100vh; border:none;" border="no" ></iframe>
             </div>
 
         </section>

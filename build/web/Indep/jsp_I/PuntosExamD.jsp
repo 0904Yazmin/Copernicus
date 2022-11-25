@@ -1,3 +1,4 @@
+<%@page import="Conexion.Exam"%>
 <%@page import="Conexion.BD"%>
 <%@page import="Conexion.Digest"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,15 +13,21 @@
             //Datos de formulario de registro para Estudiante y docente
             HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
             int id = (int) (miSessiondelUsuario.getAttribute("id_usuario") == null ? 0 : miSessiondelUsuario.getAttribute("id_usuario"));
+            Exam examen = new Exam();
+            
+            
             String aciertos = request.getParameter("aciertos");
-            //int aciertos = request.getAttribute("resultado");
+            //int aciertos = request.getParameter("aciertos");
             String strQry = null;
             String[] grado = {"Basico", "Intermedio", "Avanzado"};
+            examen.getOpcion_elegida();
+            examen.corregir();
+            examen.getAciertos();
 
             BD base = new BD();
             try {
                 base.conectar();
-                if (aciertos.equals("1") || aciertos.equals("2") || aciertos.equals("3") || aciertos.equals("4") || aciertos.equals("5") || aciertos.equals("6") || aciertos.equals("7")) {
+                if (aciertos.equals("1") ) {
                     strQry = "update Estudiante set grado_usuario='" + grado[0] + "'where id_usuario='" + id + "'";
                 } else {
                     if (aciertos.equals("8") || aciertos.equals("9") || aciertos.equals("10") || aciertos.equals("11") || aciertos.equals("12") || aciertos.equals("13") || aciertos.equals("14")) {
@@ -31,10 +38,14 @@
                 }
                 base.insertar(strQry);
                 out.print(aciertos);
+                
         %>
+       
+        
         <script>
             window.alert("buenas" + aciertos);
         </script>
+        
         <%
             } catch (Exception ex) {
                 out.print(ex.getMessage());

@@ -49,13 +49,13 @@
                         <%
                             if (info.getString(5) == null) {
                         %>
-                        <td><img src="../../../General/img/fotoUsu_0.png" width=130" height="120" alt="foto 0" class="imagenUsuCero blanco"/></td>
+                        <td><img src="../../../General/img/fotoUsu_0.png" width="130" height="120" alt="foto 0" class="imagenUsuCero blanco"/></td>
 
                         <%
                         } else {
 
                         %>
-                        <td><img class="imagenUsuCero" src="../../../General/Usu_img/fotosPerfil/<%=foto%>" width=135" height="135"></td>
+                        <td><img class="imagenUsuCero" src="../../../General/Usu_img/fotosPerfil/<%=foto%>" width="135" height="135"></td>
 
                         <%                }
                         %>

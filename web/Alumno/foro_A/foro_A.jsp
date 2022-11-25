@@ -27,7 +27,7 @@
         String info_clase = "Select * from Clases where id_clase = '" + id_class + "'"; // seleccionamos los datos de la tabla Clases
         ResultSet ClaseInfo = basesita.consulta(info_clase);
         if (ClaseInfo.next()) {
-            String PostInfo = "Select * from Post where id_foro = '" + id_class + "'"; //selecionamos los datos del usuario de la tabla Estudiante 
+            String PostInfo = "Select * from Post where id_foro = '" + id_class + " ' order by id_post DESC ";//selecionamos los datos del usuario de la tabla Estudiante 
             ResultSet publi = basesita.consulta(PostInfo);
 
         }

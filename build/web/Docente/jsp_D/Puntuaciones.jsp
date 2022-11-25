@@ -1,63 +1,144 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Conexion.BD"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <%
     HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
-    int idProf = (int) (miSessiondelUsuario.getAttribute("id_docen") == null ? 0 : miSessiondelUsuario.getAttribute("id_docen"));
-    if (idProf < 1) {
+    int idPersona = (int) (miSessiondelUsuario.getAttribute("id_docen") == null ? 0 : miSessiondelUsuario.getAttribute("id_docen"));
+    if (idPersona < 1) {
         response.sendRedirect("../jsp/Menu.jsp");
     }
     String nombre = "";
     String correo = "";
+    String foto = "";
+    String tipo = "";
     BD basesita = new BD();
     basesita.conectar();
-    String datitos = "Select * from Docente where id_docen = '" + idProf + "'";
-    ResultSet rsDatosPer = basesita.consulta(datitos);
 
+    String UsuarioInfo = "Select * from Docente where id_docen = '" + idPersona + "'"; //selecionamos los datos del maestro de la tabla Docente
+    ResultSet rsDatosPer = basesita.consulta(UsuarioInfo);
     if (rsDatosPer.next()) {
-        nombre = rsDatosPer.getString(2);
         correo = rsDatosPer.getString(3);
-    }
 %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Copernicus System</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../Alumno/css_A/menu_A.css" ><!--  -->
+        <title>Foro de la clase</title>
+        <link rel="stylesheet" href="../css_D/menu_D.css" >
+        <link rel="stylesheet" href="../css_D/foro_style.css" >
+        <link rel="stylesheet" href="../css_D/css1.css">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="shorcut icon" href="../../General/img/logos/Newlogo.png">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
         </style>
-        <link rel="shorcut icon" href="../../General/img/logos/Newlogo.png">
     </head>
-    <body>
-    <center>
-        <header>
-            <a href="Menu_D.jsp" ><img src="../../General/img/logos/Newlogo.png" alt="logo" class="logo"></a>
-            <nav class="nav_A">
-                <center>
-                    <ul>
-                        <li> <a href="#" class="link" ><img src="../../General/img/Iconos_menu/clases.png" class="imgmenu"> Clases</a></li>
-                        <li><a href="../../General/Actividades/Lecciones/Nivel2/Lecciones.html" class="link" ><img src="../../General/img/Iconos_menu/apuntes.png" class="imgmenu"> Lecciones</a></li>
-                        <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/comentarios.png" class="imgmenu">Chat</a></li>
-                        <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/libros_1.png" class="imgmenu"> Ejercicios</a></li>
-                        <li><a href="#" class="link" > <img src="../../General/img/Iconos_menu/puntuaciones.png" class="imgmenu"> Puntuaciones</a></li>
-                        <li><a href="#" class="link" ><img src="../../General/img/Iconos_menu/mapaStar.png" class="imgmenu">Mapa</a></li> 
-                        <li class="opciones"><a class="link" ><img src="../../General/img/Iconos_menu/desplegar.png" class="imgmenu usu"></a>
-                            <ul>
-                                <li class="link"><img src="../../General/img/Iconos_menu/correo.png" class="imgmenu"><%=correo%></li>
-                                <li><a href="Menu_D.jsp" class="link" ><img src="../../General/img/Iconos_menu/home.png" class="imgmenu">   Inicio</a></li> 
-                                <li><a href="Perfil_D.jsp" class="link" ><img src="../../General/img/Iconos_menu/usuario.png" class="imgmenu usu">Perfil</a></li> <br>
-                                <li><a href="../../General/cerrarSesion.jsp" class="link" ><img src="../../General/img/Iconos_menu/salir.png" class="imgmenu"> Cerrar sesión</a></li>
-                            </ul>
+    <body id="foro1">
+        <nav class="sidebar close">
+            <header id="header2">
+                <div class="image-text">
+                    <span class="image">
+                        <img src="../../General/img/logos/Newlogo.png" class="bx icon"  width="5px" height="5px" />
+                    </span>
+                    <div class="text logo-text">
+                        <br> 
+                        <span class="profession">Clases</span>
+                    </div>
+                </div>
+                <i class='bx bx-chevron-right toggle'></i>
+            </header>
+
+            <div class="menu-bar">
+                <div class="menu">
+                    <ul class="menu-links">
+
+                        <li class="nav-link">
+                            <a href="../jsp_D/Menu_D.jsp">
+                                <i class='bx bx-home-alt icon' ></i>
+                                <span class="text nav-text">Menú principal</span>
+                            </a>
                         </li>
+                        <%
+                            try {
+                                String strQry = "select * from Clases where id_docen = '" + idPersona + "'";
+                                ResultSet rs = null;
+                                rs = basesita.consulta(strQry);
+                                int id_clase;
+                                while (rs.next()) {
+                                    id_clase = Integer.parseInt(rs.getString(1));
+                        %>
+                        <li class="nav-link">
+                            <a href="TablasPuntos.jsp?id_clase=<%=id_clase%>" target="tables"  >
+                                <i class='bx bx-pencil icon' style="margin-right: -6px;"></i>
+                                <span class="text nav-text"><%=rs.getString(2)%></span>
+                            </a>
+                        </li>
+                        <%
+                                }
+                                rs.close();
+                                basesita.cierraConexion();
+                            } catch (Exception ex) {
+                                out.print(ex.getMessage());
+                            }
+                        %>
                     </ul>
-                </center>
-            </nav>
-        </header>
-    </center>
-</body>
+                </div>
+
+                <div class="bottom-content">
+                    <li >
+                        <a href="#">
+                            <i class='bx bx-log-out icon' ></i>
+                            <span class="text nav-text">Cerrar sesión</span>
+                        </a>
+                    </li>
+                </div>
+            </div>
+
+        </nav>
+
+        <section class="home">
+            <div class="PostsFrame">
+                <iframe name="tables" src="TablasPuntos.jsp" style="width: 100%; height: 100vh; border:none;" ></iframe>
+            </div>
+
+        </section>
+
+
+
+
+        <%
+            }
+        %>
+
+
+        <script>
+            const body = document.querySelector('body'),
+                    sidebar = body.querySelector('nav'),
+                    toggle = body.querySelector(".toggle"),
+                    searchBtn = body.querySelector(".search-box"),
+                    modeSwitch = body.querySelector(".toggle-switch"),
+                    modeText = body.querySelector(".mode-text");
+
+
+            toggle.addEventListener("click", () => {
+                sidebar.classList.toggle("close");
+            })
+
+            searchBtn.addEventListener("click", () => {
+                sidebar.classList.remove("close");
+            })
+
+            modeSwitch.addEventListener("click", () => {
+                body.classList.toggle("dark");
+
+                if (body.classList.contains("dark")) {
+                    modeText.innerText = "Light mode";
+                } else {
+                    modeText.innerText = "Dark mode";
+
+                }
+            });
+        </script>
+    </body>
 </html>

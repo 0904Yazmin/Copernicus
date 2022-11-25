@@ -67,7 +67,6 @@
                     <center><td colspan='2'><input id="BtnEditar" name="BtnEditar" type="submit"  class="actu_b" value="Actualizar contraseña"/></td></center>
                     </tr>
                     <br><br> <br>
-
                 </table>
 
             </div>

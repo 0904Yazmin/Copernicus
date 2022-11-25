@@ -2,7 +2,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.ResultSet"%>
 <%
-    /**
+
     HttpSession miSessiondelUsuario = (HttpSession) request.getSession();
 
     int idPersona = (int) (miSessiondelUsuario.getAttribute("id_docen") == null ? 0 : miSessiondelUsuario.getAttribute("id_docen"));
@@ -12,10 +12,10 @@
     String nombre = "";
     String clave = "";
     String color = "";
-    String grado= "";
+    String grado = "";
     BD basesita = new BD();
     basesita.conectar();
-**/
+
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
     </head>
     <body id="crearP">
         <div class="div_1">
-            <%              /**  try {
+            <%                try {
                     int id_clasesita = Integer.parseInt(request.getParameter("id_clase"));
                     String strQry = "select * from Clases where id_clase='" + id_clasesita + "'";
                     ResultSet rs = null;
@@ -42,14 +42,17 @@
                         clave = rs.getString(4);
                         grado = rs.getString(3);
                         color = rs.getString(6);
-**/
+
             %>
+            <style>
+                .botoncitos:hover{ background-color: <%=color%>;}
+            </style>
             <div class="infoClase">
                 <aside class="card">
-                    <h1>Clase</h1>
-                    <div class="clip" style="background-color: #1B2A41; font-size: 13px; line-height: 15px;">
-                        <div style="display: flex; color: white;"> <p>Grado de la clase: </p></div>
-                        <div style="display: flex; color: white;"> <p>Clave: </p></div>
+                    <h1><%=nombre%></h1>
+                    <div class="clip" style="background-color:<%= color%>; font-size: 13px; line-height: 15px;">
+                        <div style="display: flex; color: white;"> <p>Grado de la clase: <%=grado%> </p></div>
+                        <div style="display: flex; color: white;"> <p>Clave: <%=clave%></p></div>
                     </div>
                 </aside>
             </div>
@@ -60,8 +63,8 @@
                     <table class="tablita" border="0">
                         <tr>
                             <td>
-                                <textarea cols="75" rows="5" name="textoPost" id="textoPost" class="info textArea" placeholder="Escribe lo que quieras" required></textarea>
-                            </td>
+                        <center><textarea cols="75" rows="5" name="textoPost" id="textoPost" class="info textArea" placeholder="Escribe lo que quieras" required></textarea></center>
+                        </td>
                         </tr>
                         <tr>
                             <td>
@@ -70,20 +73,21 @@
                         </tr>
                         <tr>
                             <td>
-                                <input  style="margin-right:35px;" type="reset" class="botoncitos">
+                                <input   type="reset" class="botoncitos" >
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input class="botoncitos" type="submit" id="btn" name="btnPublicar" onclick="valida()" value="Publicar">
-                                <input type="hidden"  id="current_date" name="current_date" value="">
+                                <input type="hidden"  id="idclase" name="idclase" value="<%=rs.getString(1)%>">
+                                <input class="botoncitos" type="submit" id="btn" name="btn" onclick="valida()" value="Publicar"  >
                             </td>
                         </tr>
                     </table>
                 </form>
             </nav>
         </div>
-        <%         /**           }
+
+        <%                 }
 
                 rs.close();
 
@@ -92,7 +96,7 @@
                 out.print(ex.getMessage());
             }
 
-**/
+
         %>
 
         <script>

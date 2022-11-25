@@ -1,3 +1,4 @@
+<%@page import="Conexion.Exam"%>
 <%@page import="Conexion.BD"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
@@ -347,20 +348,17 @@
                     </ul>
 
                 </section>
-
-                <section style=" margin-right:  50px;">
-                    <button class="botonE" onclick="corregir()">ENVIAR</button><br> <br>
-
-                </section>
                 <%!
+                    BD base = new BD();
+                    Exam examen = new Exam();
                     int[] correctas = {1, 2, 2, 2, 3, 2, 1, 2, 1, 2, 3, 3, 1, 2, 2, 3, 1};
                     int[] opcion_elegida;
 
                     public void respuesta(int num_pregunta, int seleccionada) {
 
                         opcion_elegida[num_pregunta] = seleccionada;
-
-                        //String id = "p" + num_pregunta;
+                        examen.setOpcion_elegida(opcion_elegida);
+                        String id = "p" + num_pregunta;
                     }
                 %>
 
@@ -375,15 +373,12 @@
                         return cantidad_correctas;
                         //int aciertos = Integer.parseInt(request.getParameter("resultado"));;
                     }
-
-
                 %>
 
+                <section style=" margin-right:  50px;">
+                    <button class="botonE" onclick="corregir()">ENVIAR</button><br> <br>
+                </section>
 
-                <!-- <h2>Cantidad de aciertos: </h2>
-                <input type="text" value="<//%=corregir()%>" id="aciertos" name="aciertos" placeholder="numero de aciertos" readonly="readonly">
-                -->
-                
             </form>
         </div>
 

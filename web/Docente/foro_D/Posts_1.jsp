@@ -13,9 +13,16 @@
     String nombre = "";
     String foto = "";
     String tipo = "";
+
     String textoPost = "";
     BD basesita = new BD();
     basesita.conectar();
+
+    try {
+        int id_foro = Integer.parseInt(request.getParameter("id_clase"));
+        String strQry = "select * from Post where id_foro=' " + id_foro + " ' order by id_post DESC ";
+        ResultSet rs = null;
+        rs = basesita.consulta(strQry);
 
 %>
 <html>
@@ -29,57 +36,69 @@
             @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
         </style>
     </head>
+
     <body style="background-color:  #17191A; ">
 
+
+        <div style="display: table; float: left; border: none; width:35%;"  >
+            <iframe name="postMenu" src="MenusPost.jsp?id_clase=<%=id_foro%>" id="frameMenu" scrolling="no" style=" position: sticky;  position: -webkit-sticky; top: 10%; border: none;"></iframe>
+        </div>
+
+
         <div id="publicaciones">
+
             <div id="tituloForo">
                 <p><h1>Publicaciones de la clase</h1>
             </div>
 
-            <%                try {
-                    int id_foro = Integer.parseInt(request.getParameter("id_clase"));
-                    String strQry = "select * from Post where id_foro='" + id_foro + "'";
-                    ResultSet rs = null;
-                    rs = basesita.consulta(strQry);
-
-                    while (rs.next()) {
-                        nombre = rs.getString(2);
-                        foto = rs.getString(8);
-                        textoPost = rs.getString(3);
-                        //tipo = rs.getString(2);
+            <%                while (rs.next()) {
+                    nombre = rs.getString(2);
+                    foto = rs.getString(8);
+                    textoPost = rs.getString(3);
+                    tipo = rs.getString(9);
 
             %>
             <div id="post">
                 <div>
                     <table id="tablaInfo">
                         <tr>
-                            <%                                if(foto == null) {
+                            <%                                if (rs.getString(9) == null) {
                             %>
-                            <td rowspan="2"><img src="../../General/img/fotoUsu_0.png"  alt="foto 0" id="imagenUsuCero" style="margin-right: -20px;"/></td>
-                                <%
-                                } else {
+                            <td rowspan="2"><img src="../../General/Usu_img/fotosPerfil/fotoUsu_0.png" width="50" height="50" alt="foto 0" id="imagenUsuCero" style="margin-right: -20px;"/></td>
 
-                                %>
+                            <%
+                            } else {
+
+                            %>
                             <td rowspan="2"><img class="imagenUsuCero" src="../../General/Usu_img/fotosPerfil/<%=foto%>" style="margin-right: -20px; border-radius: 100px;"  width="60" height="60"></td>
-                            <%                                }
-                            %>
+                                <%                                }
+                                %>
                             <td><h1><%=nombre%></h1></td>
-                            <td style="text-align: right;">Tipo de alumno</td> 
+                            <td style="text-align: right;"><%=tipo%></td> 
                         </tr>
-                        <tr>
-                            <td><h3>Fecha de publi</h3></td>
-                        </tr>
-
+                        
                     </table>
                 </div>
-
                 <div id="txtPost">
                     <p>
                         <%=textoPost%>
                     </p>
+
+                    <%
+                        if (rs.getString(7) == null) {
+                    %>
+
+
+                    <%
+                    } else {
+
+                    %>
                     <div id="ImagePost">
-                        <img src="fondo.jpg"  alt="image" style="width: 90%; height: 40%; " id="ImagePost"/>
+                        <img class="imagenUsuCero" src="../../../General/Usu_img/fotosForo/<%=rs.getString(7)%>" alt="image" style="width: 90%; height: 40%; " id="ImagePost">
                     </div>
+                    <%                }
+                    %>
+
                 </div>
 
                 <div id="cajitaComent" style="border-top: 1px gray;">
@@ -111,4 +130,4 @@
         </div>
 
     </body> 
-</html >
+</html>

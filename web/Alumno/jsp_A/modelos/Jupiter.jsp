@@ -67,7 +67,7 @@
     </center>
 
     <div class="Mapa_interactivo">
-        <iframe src='https://my.spline.design/jupiter5copy-61b03de52b52528b32fe5d73ff872c58/' frameborder='0' width='1500' height='700'></iframe>
+        <iframe src='https://my.spline.design/jupiter5copy-61b03de52b52528b32fe5d73ff872c58/' frameborder='0' width='1600' height='800'></iframe>
     </div>
 
 </body>

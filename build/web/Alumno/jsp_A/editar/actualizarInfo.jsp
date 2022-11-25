@@ -24,8 +24,6 @@
             try {
                 base.conectar();
                 
-                
-                
                 String dato = "update Estudiante set nom_usuario ='" + nombre + "'where id_usuario='" + id + "'";
                 int resultadoEdita = base.edita(dato);
                 /**
@@ -38,8 +36,6 @@
         <script>
             window.alert("Los datos se modificaron correctamente");
         </script>
-
-
 
         <%
                 }
